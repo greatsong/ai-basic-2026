@@ -562,10 +562,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
       <a href="#overview">0. 평가 개요</a>
       <a href="#trackA">1. Track A: 객관적 채점 (45점)</a>
       <a href="#trackA-calc" class="teacher-link">&nbsp;&nbsp;계산 과정 평가형 (A-1 ~ A-4)</a>
-      <a href="#trackA-match" class="teacher-link">&nbsp;&nbsp;개념 적용 평가형 (A-5 ~ A-8)</a>
-      <a href="#trackA-algo" class="teacher-link">&nbsp;&nbsp;알고리즘형 (A-9)</a>
-      <a href="#trackA-visual" class="teacher-link">&nbsp;&nbsp;시각형 (A-10 ~ A-11)</a>
-      <a href="#trackA-judge" class="teacher-link">&nbsp;&nbsp;비판적 사고 평가형 (A-12 ~ A-13)</a>
+      <a href="#trackA-match" class="teacher-link">&nbsp;&nbsp;개념·알고리즘형 (A-5 ~ A-9)</a>
+      <a href="#trackA-visual" class="teacher-link">&nbsp;&nbsp;분석·비판적 사고형 (A-10 ~ A-13)</a>
       <a href="#trackB">2. Track B: 키워드 서술형 (25점)</a>
       <a href="#trackC">3. Track C: 과정 관찰 + 관찰 도구 (30점)</a>
       <a href="#guide" class="teacher-link">4. 구술평가 운영 가이드</a>
@@ -885,7 +883,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     </div>
 
     <!-- ========== 개념 적용 평가형 ========== -->
-    <div class="sub-header" id="trackA-match">개념 적용 평가형 (4문항, 12점)</div>
+    <div class="sub-header" id="trackA-match">개념·알고리즘 이해형 (5문항, 16점)</div>
 
     <!-- A-5 -->
     <div class="question">
@@ -1055,8 +1053,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
       </div>
     </div>
 
-    <!-- ========== 알고리즘 절차형 ========== -->
-    <div class="sub-header" id="trackA-algo">알고리즘 절차형 (1문항, 4점)</div>
+    <!-- ========== 알고리즘 (개념·알고리즘 이해형 계속) ========== -->
 
     <!-- A-9 -->
     <div class="question">
@@ -1112,7 +1109,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     </div>
 
     <!-- ========== 데이터 해석 평가형 ========== -->
-    <div class="sub-header" id="trackA-visual">데이터 해석 평가형 (2문항, 7점)</div>
+    <div class="sub-header" id="trackA-visual">분석·비판적 사고형 (4문항, 13점)</div>
 
     <!-- A-10 -->
     <div class="question">
@@ -1204,8 +1201,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
       </div>
     </div>
 
-    <!-- ========== 비판적 사고 평가형 ========== -->
-    <div class="sub-header" id="trackA-judge">비판적 사고 평가형 (2문항, 6점)</div>
+    <!-- ========== 비판적 사고 (분석·비판적 사고형 계속) ========== -->
 
     <!-- A-12 -->
     <div class="question">
@@ -1852,39 +1848,26 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
       </div>
 
       <!-- 개념 이해 -->
+      <!-- 개념·알고리즘 이해 -->
       <div style="background:#ECFDF5; border-radius:8px; padding:0.8rem 1rem; border-left:4px solid #10B981;">
-        <div style="font-weight:700; font-size:0.85rem; color:#059669; margin-bottom:0.5rem;">개념 이해 (12점)</div>
+        <div style="font-weight:700; font-size:0.85rem; color:#059669; margin-bottom:0.5rem;">개념·알고리즘 이해 (16점)</div>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-5</span><input type="number" min="0" max="3" data-q="A-5" data-max="3" data-domain="개념이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-6</span><input type="number" min="0" max="4" data-q="A-6" data-max="4" data-domain="개념이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-7</span><input type="number" min="0" max="2" data-q="A-7" data-max="2" data-domain="개념이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/2</span></div>
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-8</span><input type="number" min="0" max="3" data-q="A-8" data-max="3" data-domain="개념이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-5</span><input type="number" min="0" max="3" data-q="A-5" data-max="3" data-domain="개념알고리즘이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-6</span><input type="number" min="0" max="4" data-q="A-6" data-max="4" data-domain="개념알고리즘이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-7</span><input type="number" min="0" max="2" data-q="A-7" data-max="2" data-domain="개념알고리즘이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/2</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-8</span><input type="number" min="0" max="3" data-q="A-8" data-max="3" data-domain="개념알고리즘이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-9</span><input type="number" min="0" max="4" data-q="A-9" data-max="4" data-domain="개념알고리즘이해" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
         </div>
       </div>
 
-      <!-- 알고리즘 사고 -->
-      <div style="background:#FFFBEB; border-radius:8px; padding:0.8rem 1rem; border-left:4px solid #F59E0B;">
-        <div style="font-weight:700; font-size:0.85rem; color:#B45309; margin-bottom:0.5rem;">알고리즘 사고 (4점)</div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-9</span><input type="number" min="0" max="4" data-q="A-9" data-max="4" data-domain="알고리즘사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
-        </div>
-      </div>
-
-      <!-- 데이터 해석 -->
+      <!-- 분석·비판적 사고 -->
       <div style="background:#F5F3FF; border-radius:8px; padding:0.8rem 1rem; border-left:4px solid #8B5CF6;">
-        <div style="font-weight:700; font-size:0.85rem; color:#6D28D9; margin-bottom:0.5rem;">데이터 해석 (7점)</div>
+        <div style="font-weight:700; font-size:0.85rem; color:#6D28D9; margin-bottom:0.5rem;">분석·비판적 사고 (13점)</div>
         <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-10</span><input type="number" min="0" max="4" data-q="A-10" data-max="4" data-domain="데이터해석" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-11</span><input type="number" min="0" max="3" data-q="A-11" data-max="3" data-domain="데이터해석" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
-        </div>
-      </div>
-
-      <!-- 비판적 사고 -->
-      <div style="background:#FEF2F2; border-radius:8px; padding:0.8rem 1rem; border-left:4px solid #EF4444;">
-        <div style="font-weight:700; font-size:0.85rem; color:#B91C1C; margin-bottom:0.5rem;">비판적 사고 (6점)</div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-12</span><input type="number" min="0" max="3" data-q="A-12" data-max="3" data-domain="비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
-          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-13</span><input type="number" min="0" max="3" data-q="A-13" data-max="3" data-domain="비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-10</span><input type="number" min="0" max="4" data-q="A-10" data-max="4" data-domain="분석비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/4</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-11</span><input type="number" min="0" max="3" data-q="A-11" data-max="3" data-domain="분석비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-12</span><input type="number" min="0" max="3" data-q="A-12" data-max="3" data-domain="분석비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
+          <div style="display:flex; align-items:center; gap:0.3rem;"><span style="font-weight:600; font-size:0.85rem;">A-13</span><input type="number" min="0" max="3" data-q="A-13" data-max="3" data-domain="분석비판적사고" class="q-score" style="width:45px; border:1px solid var(--border); border-radius:4px; padding:0.25rem; text-align:center; font-size:0.85rem;"><span style="color:var(--text-light); font-size:0.75rem;">/3</span></div>
         </div>
       </div>
 
@@ -1995,10 +1978,8 @@ window.addEventListener('scroll', function() {
 // ===== 영역별 평가 분석 도구 =====
 const DOMAINS = [
   { key: '수학적계산', label: '수학적 계산', color: '#3B82F6' },
-  { key: '개념이해',   label: '개념 이해',   color: '#10B981' },
-  { key: '알고리즘사고', label: '알고리즘 사고', color: '#F59E0B' },
-  { key: '데이터해석', label: '데이터 해석', color: '#8B5CF6' },
-  { key: '비판적사고', label: '비판적 사고', color: '#EF4444' },
+  { key: '개념알고리즘이해', label: '개념·알고리즘 이해', color: '#10B981' },
+  { key: '분석비판적사고', label: '분석·비판적 사고', color: '#8B5CF6' },
   { key: '서술논증',   label: '서술 논증',   color: '#EC4899' },
   { key: '탐구태도',   label: '탐구 태도',   color: '#F97316' },
 ];
@@ -2182,34 +2163,20 @@ function generateSanggibu(rates, total) {
     parts.push('퍼셉트론의 가중합 개념을 이해하고 기본적인 계산을 수행하려 노력함');
   }
 
-  // 개념 이해
-  if (rateMap['개념이해'].rate >= 80) {
-    parts.push('활성화함수(ReLU, Sigmoid, Tanh)의 특성을 정확히 구분하고, 순전파·역전파 과정의 각 단계를 체계적으로 설명함');
-  } else if (rateMap['개념이해'].rate >= 50) {
-    parts.push('활성화함수의 종류를 구분하고 신경망 학습 단계의 기본적인 역할을 이해함');
+  // 개념·알고리즘 이해
+  if (rateMap['개념알고리즘이해'].rate >= 80) {
+    parts.push('활성화함수(ReLU, Sigmoid, Tanh)의 특성을 정확히 구분하고, 역전파 4단계의 순서와 각 단계의 역할을 체계적으로 설명함');
+  } else if (rateMap['개념알고리즘이해'].rate >= 50) {
+    parts.push('활성화함수의 종류를 구분하고 신경망 학습의 기본적인 절차와 역할을 이해함');
   } else {
     parts.push('활성화함수의 종류를 구분하려 노력하고, 신경망 학습의 기본 구조를 인식함');
   }
 
-  // 알고리즘 사고
-  if (rateMap['알고리즘사고'].rate >= 80) {
-    parts.push('순전파와 역전파의 순환 과정을 절차적으로 기술하고 각 단계의 역할을 정확히 설명함');
-  } else if (rateMap['알고리즘사고'].rate >= 50) {
-    parts.push('신경망 학습의 4단계 순서를 이해하고 기본적인 절차를 설명함');
-  }
-
-  // 데이터 해석
-  if (rateMap['데이터해석'].rate >= 80) {
-    parts.push('학습률별 가중치 변화 그래프를 분석하고 이상치의 제곱 효과를 논증함');
-  } else if (rateMap['데이터해석'].rate >= 50) {
-    parts.push('그래프와 데이터를 활용한 기본적인 해석 능력을 보임');
-  }
-
-  // 비판적 사고
-  if (rateMap['비판적사고'].rate >= 80) {
-    parts.push('활성화함수 없는 다층 신경망이 선형함수로 축소되는 원리를 논증하고, Temperature에 따른 확률 분포 변화를 정확히 설명함');
-  } else if (rateMap['비판적사고'].rate >= 50) {
-    parts.push('주어진 주장의 참/거짓을 판단하고 기본적인 근거를 제시함');
+  // 분석·비판적 사고
+  if (rateMap['분석비판적사고'].rate >= 80) {
+    parts.push('학습률 그래프의 수렴·진동·발산 패턴을 판별하고, 활성화함수 없는 다층 신경망이 선형으로 축소되는 원리를 논증하는 등 데이터 분석력과 비판적 추론력이 우수함');
+  } else if (rateMap['분석비판적사고'].rate >= 50) {
+    parts.push('그래프를 활용한 기본적인 해석 능력을 보이고, 주어진 주장에 대해 근거를 들어 판단함');
   }
 
   // 서술 논증
