@@ -8,7 +8,7 @@ import time
 import os
 import sys
 
-API_KEY = "AIzaSyDDsjDuDWJ6co019W0pP9MV4Z77ljmjbiA"
+API_KEY = os.environ.get("GEMINI_API_KEY", "")
 MODEL = "gemini-3.1-flash-image-preview"
 ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={API_KEY}"
 OUTPUT_DIR = "/Users/greatsong/greatsong-project/ai-basic-2026/assessment-images"
