@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 기초 과정중심평가 문항집 - 학생용</title>
+<title>AI 기초 과정중심평가 - 학생용</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,12 +17,8 @@
   --primary: #3B82F6;
   --primary-dark: #2563EB;
   --primary-light: #DBEAFE;
-  --part-a: #3B82F6;
-  --part-b: #8B5CF6;
-  --part-c: #EC4899;
-  --part-d: #F59E0B;
-  --part-e: #10B981;
-  --part-f: #6366F1;
+  --track-a: #3B82F6;
+  --track-b: #8B5CF6;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
   --gray-200: #E5E7EB;
@@ -101,6 +97,8 @@ body {
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(4px);
 }
+.header .badge.blue { background: rgba(59,130,246,0.4); }
+.header .badge.purple { background: rgba(139,92,246,0.4); }
 
 /* ==============================
    Sticky Nav
@@ -136,12 +134,8 @@ body {
   background: var(--gray-100);
 }
 .nav-link:hover { background: var(--primary-light); color: var(--primary-dark); }
-.nav-link[data-part="a"] { border-left: 3px solid var(--part-a); }
-.nav-link[data-part="b"] { border-left: 3px solid var(--part-b); }
-.nav-link[data-part="c"] { border-left: 3px solid var(--part-c); }
-.nav-link[data-part="d"] { border-left: 3px solid var(--part-d); }
-.nav-link[data-part="e"] { border-left: 3px solid var(--part-e); }
-.nav-link[data-part="f"] { border-left: 3px solid var(--part-f); }
+.nav-link[data-track="a"] { border-left: 3px solid var(--track-a); }
+.nav-link[data-track="b"] { border-left: 3px solid var(--track-b); }
 
 /* ==============================
    Layout
@@ -176,12 +170,8 @@ body {
   color: #fff;
   flex-shrink: 0;
 }
-.part-a .part-icon { background: var(--part-a); }
-.part-b .part-icon { background: var(--part-b); }
-.part-c .part-icon { background: var(--part-c); }
-.part-d .part-icon { background: var(--part-d); }
-.part-e .part-icon { background: var(--part-e); }
-.part-f .part-icon { background: var(--part-f); }
+.track-a .part-icon { background: var(--track-a); }
+.track-b .part-icon { background: var(--track-b); }
 .part-title-group h2 {
   font-size: 1.35rem;
   font-weight: 700;
@@ -191,6 +181,34 @@ body {
   font-size: 0.85rem;
   color: var(--gray-500);
   margin-top: 0.15rem;
+}
+
+/* ==============================
+   Sub-section headers (within Track A)
+   ============================== */
+.sub-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 1rem;
+  padding: 0.6rem 1rem;
+  background: #EFF6FF;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--track-a);
+}
+.sub-section-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1E40AF;
+}
+.sub-section-header .sub-pts {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--track-a);
+  background: #DBEAFE;
+  padding: 0.15rem 0.6rem;
+  border-radius: 50px;
 }
 
 /* ==============================
@@ -207,18 +225,8 @@ body {
 }
 .info-box.purple {
   background: #EDE9FE;
-  border-left-color: var(--part-b);
+  border-left-color: var(--track-b);
   color: #5B21B6;
-}
-.info-box.green {
-  background: #D1FAE5;
-  border-left-color: var(--part-e);
-  color: #065F46;
-}
-.info-box.amber {
-  background: #FEF3C7;
-  border-left-color: var(--part-d);
-  color: #92400E;
 }
 
 /* ==============================
@@ -250,12 +258,8 @@ body {
   color: #fff;
   white-space: nowrap;
 }
-.part-a .q-number { background: var(--part-a); }
-.part-b .q-number { background: var(--part-b); }
-.part-c .q-number { background: var(--part-c); }
-.part-d .q-number { background: var(--part-d); }
-.part-e .q-number { background: var(--part-e); }
-.part-f .q-number { background: var(--part-f); }
+.track-a .q-number { background: var(--track-a); }
+.track-b .q-number { background: var(--track-b); }
 .q-meta {
   font-size: 0.78rem;
   color: var(--gray-400);
@@ -282,9 +286,9 @@ body {
   margin: 0.8rem 0;
   border: 1px solid var(--gray-200);
 }
-.q-body .img-sm {
-  max-width: 400px;
-}
+.q-body .img-sm { max-width: 400px; }
+
+/* Dialogue */
 .dialogue {
   background: var(--gray-50);
   border-radius: var(--radius-sm);
@@ -298,6 +302,7 @@ body {
   font-weight: 600;
   color: var(--primary-dark);
 }
+
 .question-text {
   font-weight: 600;
   color: var(--gray-900);
@@ -312,17 +317,55 @@ body {
   color: var(--primary);
   font-weight: 600;
 }
+
+/* Given info box */
+.given-box {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  font-family: 'SF Mono', 'Fira Code', 'Noto Sans KR', monospace;
+}
+
+/* Sub-question list */
+.sub-questions {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0 0;
+}
+.sub-questions li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--gray-200);
+  font-size: 0.95rem;
+}
+.sub-questions li:last-child { border-bottom: none; }
+.sub-q-label {
+  font-weight: 700;
+  color: var(--track-a);
+  margin-right: 0.3rem;
+}
+.track-b .sub-q-label { color: var(--track-b); }
+.sub-q-pts {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* Answer Area */
 .answer-area {
   border: 2px dashed var(--gray-300);
   border-radius: var(--radius-sm);
   padding: 1rem;
   margin-top: 0.8rem;
-  min-height: 80px;
+  min-height: 60px;
   background: var(--gray-50);
   position: relative;
 }
 .answer-area::before {
-  content: '답안 작성란';
+  content: attr(data-label);
   position: absolute;
   top: 0.5rem;
   left: 0.8rem;
@@ -331,28 +374,9 @@ body {
   font-weight: 500;
 }
 .answer-area.tall { min-height: 160px; }
+.answer-area.xtall { min-height: 240px; }
 
-/* ==============================
-   Solution box (for Part B public solutions)
-   ============================== */
-.solution-box {
-  background: #F0FDF4;
-  border: 1px solid #BBF7D0;
-  border-radius: var(--radius-sm);
-  padding: 0.9rem 1rem;
-  margin-top: 0.8rem;
-  font-size: 0.9rem;
-}
-.solution-box .sol-label {
-  font-weight: 700;
-  color: #166534;
-  font-size: 0.82rem;
-  margin-bottom: 0.3rem;
-}
-
-/* ==============================
-   Keyword box (for Parts D & E)
-   ============================== */
+/* Keyword box */
 .keyword-box {
   background: #FFFBEB;
   border: 1px solid #FDE68A;
@@ -378,12 +402,35 @@ body {
   margin: 0.15rem 0.15rem;
 }
 
-/* ==============================
-   Overview Cards
-   ============================== */
+/* Styled Tables */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+}
+.styled-table th,
+.styled-table td {
+  border: 1px solid var(--gray-200);
+  padding: 0.5rem 0.8rem;
+  text-align: center;
+}
+.styled-table th {
+  background: var(--gray-100);
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.85rem;
+}
+.styled-table td { color: var(--gray-800); }
+.styled-table .blank-cell {
+  background: #FFFBEB;
+  min-width: 80px;
+}
+
+/* Overview Cards */
 .overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -410,20 +457,38 @@ body {
   font-size: 0.82rem;
   color: var(--gray-500);
 }
-.oc-a .oc-label { color: var(--part-a); }
-.oc-b .oc-label { color: var(--part-b); }
-.oc-c .oc-label { color: var(--part-c); }
-.oc-d .oc-label { color: var(--part-d); }
-.oc-e .oc-label { color: var(--part-e); }
-.oc-f .oc-label { color: var(--part-f); }
+.oc-total .oc-label { color: var(--gray-600); }
+.oc-a .oc-label { color: var(--track-a); }
+.oc-b .oc-label { color: var(--track-b); }
+.oc-time .oc-label { color: #059669; }
 
-/* ==============================
-   Math / Code
-   ============================== */
-.math {
-  font-family: 'Georgia', serif;
-  font-style: italic;
+/* Flow diagram */
+.flow-diagram {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  margin: 0.8rem 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-x: auto;
 }
+
+/* Condition box */
+.condition-box {
+  background: #F0F9FF;
+  border-left: 4px solid var(--track-a);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+  color: #1E40AF;
+}
+
+/* Math / Code / Formula */
+.math { font-family: 'Georgia', serif; font-style: italic; }
 code {
   background: var(--gray-100);
   padding: 0.15rem 0.4rem;
@@ -431,10 +496,65 @@ code {
   font-size: 0.88em;
   font-family: 'SF Mono', 'Fira Code', monospace;
 }
+.formula {
+  display: block;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  margin: 0.6rem 0;
+  font-family: 'Georgia', 'Noto Sans KR', serif;
+  font-size: 1rem;
+  text-align: center;
+  color: #0C4A6E;
+}
 
-/* ==============================
-   Footer
-   ============================== */
+/* Context & Instruction */
+.q-context {
+  color: #374151;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: #F0F9FF;
+  border-radius: 8px;
+  border-left: 3px solid #3B82F6;
+}
+.q-instruction {
+  color: #1E40AF;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Quote box */
+.quote-box {
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  border-left: 3px solid var(--gray-300);
+  font-style: italic;
+}
+
+/* Output comparison */
+.output-box {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.92rem;
+}
+.output-box .output-label {
+  font-weight: 700;
+  color: var(--gray-700);
+  margin-bottom: 0.2rem;
+  font-size: 0.82rem;
+}
+
+/* Footer */
 .footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -444,9 +564,7 @@ code {
   margin-top: 2rem;
 }
 
-/* ==============================
-   Responsive
-   ============================== */
+/* Responsive */
 @media (max-width: 640px) {
   .header { padding: 2rem 1rem; }
   .header h1 { font-size: 1.6rem; }
@@ -456,14 +574,59 @@ code {
   .q-body { padding: 1rem; }
 }
 
-/* ==============================
-   Print
-   ============================== */
+/* Student Info Bar */
+.student-info-bar {
+  max-width: 860px;
+  margin: 1.2rem auto 0;
+  padding: 0 1.2rem;
+}
+.student-info-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius);
+  padding: 0.8rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+.student-info-inner label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  white-space: nowrap;
+}
+.student-info-inner .info-field {
+  flex: 1;
+  border: none;
+  border-bottom: 2px solid var(--gray-400);
+  font-size: 1.05rem;
+  padding: 0.3rem 0.5rem;
+  font-family: inherit;
+  background: transparent;
+  outline: none;
+  min-width: 80px;
+}
+.student-info-inner .info-field:focus {
+  border-bottom-color: var(--primary);
+}
+.student-info-inner .divider {
+  width: 1px;
+  height: 28px;
+  background: var(--gray-300);
+}
+
+/* Print */
 @media print {
   .sticky-nav { display: none; }
   .header { padding: 1.5rem; }
   .q-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  .answer-area { min-height: 50px; }
+  .answer-area.tall { min-height: 120px; }
+  .answer-area.xtall { min-height: 180px; }
   body { background: #fff; }
+  .student-info-inner { border: 2px solid #333; }
+  .student-info-inner .info-field { border-bottom: 2px solid #333; }
 }
 </style>
 </head>
@@ -473,13 +636,28 @@ code {
      HEADER
      ============================== -->
 <header class="header">
-  <h1>AI 기초 과정중심평가 문항집</h1>
-  <p class="subtitle">고등학교 2학년 | 인공지능 기초</p>
+  <h1>AI 기초 과정중심평가</h1>
+  <p class="subtitle">1~8차시 범위 | 총 100점 | Track A·B + Track C 수업 중 관찰</p>
   <div class="badge-row">
-    <span class="badge">총 34문항</span>
-    <span class="badge">학생용</span>
+    <span class="badge blue">Track A 45점</span>
+    <span class="badge purple">Track B 25점</span>
+    <span class="badge" style="background:#FFF7ED; color:#EA580C; border:1px solid #FDBA74;">Track C 30점</span>
+    <span class="badge">18문항</span>
   </div>
 </header>
+
+<!-- ==============================
+     STUDENT INFO
+     ============================== -->
+<div class="student-info-bar">
+  <div class="student-info-inner">
+    <label>학번</label>
+    <input type="text" class="info-field" style="max-width:120px;" placeholder="">
+    <div class="divider"></div>
+    <label>이름</label>
+    <input type="text" class="info-field" style="max-width:160px;" placeholder="">
+  </div>
+</div>
 
 <!-- ==============================
      STICKY NAV
@@ -487,12 +665,9 @@ code {
 <nav class="sticky-nav">
   <div class="nav-inner">
     <a href="#overview" class="nav-link">개요</a>
-    <a href="#part-a" class="nav-link" data-part="a">A. 기본 개념</a>
-    <a href="#part-b" class="nav-link" data-part="b">B. 계산형</a>
-    <a href="#part-c" class="nav-link" data-part="c">C. 시각분석</a>
-    <a href="#part-d" class="nav-link" data-part="d">D. 서술형</a>
-    <a href="#part-e" class="nav-link" data-part="e">E. 통합서술</a>
-    <a href="#part-f" class="nav-link" data-part="f">F. 자기성찰</a>
+    <a href="#track-a" class="nav-link" data-track="a">Track A (객관적 채점, 45점)</a>
+    <a href="#track-b" class="nav-link" data-track="b">Track B (키워드 서술형, 25점)</a>
+    <a href="#track-c" class="nav-link" style="border-left:3px solid #FB923C;">Track C (과정 관찰, 30점)</a>
   </div>
 </nav>
 
@@ -504,836 +679,956 @@ code {
 <section id="overview" style="margin-bottom: 2rem;">
   <h2 style="font-size:1.3rem; font-weight:700; margin-bottom:1rem; color:var(--gray-900);">평가 구성</h2>
   <div class="overview-grid">
+    <div class="overview-card oc-total">
+      <div class="oc-label">총점</div>
+      <div class="oc-value">100점</div>
+      <div class="oc-sub">과정중심평가</div>
+    </div>
     <div class="overview-card oc-a">
-      <div class="oc-label">Part A - 기본 개념</div>
-      <div class="oc-value">10문항</div>
-      <div class="oc-sub">빈칸/단답 | 2점 x 10 = 20점</div>
+      <div class="oc-label">Track A</div>
+      <div class="oc-value">13문항</div>
+      <div class="oc-sub">객관적 채점 | 45점</div>
     </div>
     <div class="overview-card oc-b">
-      <div class="oc-label">Part B - 계산형</div>
-      <div class="oc-value">9문항</div>
-      <div class="oc-sub">수학적 이해 | 풀이과정 포함</div>
-    </div>
-    <div class="overview-card oc-c">
-      <div class="oc-label">Part C - 시각분석</div>
+      <div class="oc-label">Track B</div>
       <div class="oc-value">5문항</div>
-      <div class="oc-sub">매칭, 순서, 그리기, 서술 | 16점</div>
+      <div class="oc-sub">키워드 서술형 | 25점</div>
     </div>
-    <div class="overview-card oc-d">
-      <div class="oc-label">Part D - 서술형(개별)</div>
-      <div class="oc-value">6문항</div>
-      <div class="oc-sub">핵심 키워드 공개 | 4점 x 6 = 24점</div>
-    </div>
-    <div class="overview-card oc-e">
-      <div class="oc-label">Part E - 서술형(통합)</div>
-      <div class="oc-value">2문항</div>
-      <div class="oc-sub">차시 간 연결 | 5점 x 2 = 10점</div>
-    </div>
-    <div class="overview-card oc-f">
-      <div class="oc-label">Part F - 자기 성찰</div>
-      <div class="oc-value">2문항</div>
-      <div class="oc-sub">Google Forms | Before & After</div>
+    <div class="overview-card" style="border-left:3px solid #FB923C;">
+      <div class="oc-label">Track C</div>
+      <div class="oc-value">30점</div>
+      <div class="oc-sub">수업 중 과정 관찰</div>
     </div>
   </div>
-
 </section>
 
 <!-- ============================================================
-     PART A: 기본 개념
+     TRACK A: 객관적 채점 가능 문항 (45점, 13문항)
      ============================================================ -->
-<section id="part-a" class="part-section part-a">
+<section id="track-a" class="part-section track-a">
   <div class="part-header">
     <div class="part-icon">A</div>
     <div class="part-title-group">
-      <h2>Part A: 기본 개념</h2>
-      <div class="part-desc">빈칸/단답 | 10문항 x 2점 = 20점</div>
+      <h2>Track A: 객관적 채점</h2>
+      <div class="part-desc">13문항 | 45점 | 계산과정 / 개념적용 / 알고리즘 / 데이터해석 / 비판적사고</div>
     </div>
   </div>
 
-  <!-- A-1 -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       계산형 (4문항, 17점)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="sub-section-header">
+    <h3>계산 과정 평가형</h3>
+    <span class="sub-pts">4문항 / 16점</span>
+  </div>
+
+  <!-- A-1 [4점, 2차시] 퍼셉트론 출력 계산 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-1</span>
-      <span class="q-meta">CO | 1차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">2차시 | 퍼셉트론 출력 계산</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">퍼셉트론은 뇌의 뉴런을 수학으로 옮긴 가장 단순한 기계입니다. 입력에 가중치를 곱하고 더한 뒤, 활성화함수를 통과시키면 출력이 나옵니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 퍼셉트론의 출력을 구하는 과정을 풀이와 함께 작성하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">하은:</span> "오늘 수업에서 본 그 영국 수학자, 1950년에 엄청난 질문을 했잖아."</p>
-        <p><span class="speaker">온유:</span> "'기계가 생각할 수 있는가?' 그 질문? 그 사람 이름이..."</p>
-        <p><span class="speaker">하은:</span> "사진을 보여줬었는데, 이름이 뭐였더라?"</p>
+        <p><span class="speaker">현지:</span> "이 그림 봐. 퍼셉트론 구조도야. 입력이 두 개 있고 가중치랑 편향이 주어져 있어."</p>
+        <p><span class="speaker">하임:</span> "가중합을 먼저 구하고, 계단함수를 통과시키면 출력이 나오겠지?"</p>
+        <p><span class="speaker">현지:</span> "그래! 직접 계산해보자."</p>
       </div>
-      <img src="assessment-images/alan_turing.jpg" alt="앨런 튜링" class="img-sm">
-      <p class="question-text">위 사진 속 인물의 이름은 (<span class="blank">&nbsp;</span>)이다.</p>
+      <img src="assessment-images/perceptron_diagram.png" alt="퍼셉트론 구조도">
+      <div class="given-box">
+입력: x&#8321; = 1, x&#8322; = 0<br>
+가중치: w&#8321; = 0.7, w&#8322; = &minus;0.4<br>
+편향(bias): b = &minus;0.3<br>
+활성화함수: 계단함수 (z &gt; 0 &rarr; 1, z &le; 0 &rarr; 0)
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 가중합 z의 값은 얼마인가요? 계산 과정을 써주세요.
+          <div class="answer-area" data-label="(1) 가중합 z"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 활성화함수를 적용하면 최종 출력 y는 어떻게 되나요?
+          <div class="answer-area" data-label="(2) 최종 출력 y"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-2 -->
+  <!-- A-2 [5점, 4차시] MSE 계산과 이상치 분석 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-2</span>
-      <span class="q-meta">CO | 2차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">4차시 | MSE 계산과 이상치 분석</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">손실함수(Loss Function)는 AI가 "얼마나 틀렸는지"를 숫자로 알려주는 도구입니다. 대표적인 손실함수인 MSE는 오차를 제곱해서 평균한 값입니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 두 데이터셋의 MSE를 각각 계산하고 차이가 나는 이유를 설명하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">윤지:</span> "이 사람이 매컬럭이랑 핏츠의 인공 뉴런에 학습 규칙을 더한 거잖아."</p>
-        <p><span class="speaker">은하:</span> "맞아! 근데 이 기계 이름이 뭐였지?"</p>
+        <p><span class="speaker">현공:</span> "우리 AI가 기온을 예측했어. 두 데이터셋으로 MSE를 비교해보자."</p>
+        <p><span class="speaker">은하:</span> "오차를 제곱하고 평균 내면 되는 거지? 근데 데이터 B에 이상치가 있어서 결과가 많이 다를 것 같아."</p>
+        <p><span class="speaker">현공:</span> "직접 구해봐!"</p>
       </div>
-      <img src="assessment-images/rosenblatt.jpg" alt="로젠블랫" class="img-sm">
-      <p class="question-text">위 인물이 만든 학습 기계의 이름은 (<span class="blank">&nbsp;</span>)이다.</p>
+      <img src="assessment-images/mse_outlier_student.png" alt="MSE 이상치 비교">
+      <div class="given-box">
+<strong>데이터 A:</strong> 예측값 [3, 5, 4], 실제값 [2, 6, 5]<br>
+<strong>데이터 B:</strong> 예측값 [3, 5, 4], 실제값 [2, 6, 11]
+      </div>
+      <div class="formula">MSE = (1/n) &times; &Sigma;(예측값 &minus; 실제값)&sup2;</div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 데이터 A의 각 오차와 MSE를 구해보세요. 계산 과정을 써주세요.
+          <div class="answer-area" data-label="(1) 데이터 A의 MSE"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 데이터 B의 각 오차와 MSE를 구해보세요. 계산 과정을 써주세요.
+          <div class="answer-area" data-label="(2) 데이터 B의 MSE"></div>
+        </li>
+        <li><span class="sub-q-label">(3)</span> 데이터 B의 MSE가 A보다 훨씬 큰 이유를 <strong>"제곱"</strong>이라는 단어를 사용하여 한 문장으로 설명해주세요.
+          <div class="answer-area" data-label="(3) 이유 설명"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-3 -->
+  <!-- A-3 [4점, 5차시] 가중치 업데이트와 학습률 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-3</span>
-      <span class="q-meta">CO | 3차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">5차시 | 가중치 업데이트와 학습률</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">경사하강법은 "지금 위치에서 어느 방향으로 얼마나 움직여야 손실이 줄어들까?"를 계산하는 방법입니다. 학습률은 한 걸음의 크기를 결정합니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 세 가지 학습률에 따른 가중치 변화를 계산하고 큰 학습률의 문제점을 설명하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">현지:</span> "자, 이 그래프들 봐. S자 곡선으로 0에서 1 사이 값을 내는 건?"</p>
-        <p><span class="speaker">하임:</span> "그건... 음..."</p>
+        <p><span class="speaker">온유:</span> "경사하강법 실습에서 학습률을 바꿔보면 어떻게 될까?"</p>
+        <p><span class="speaker">하은:</span> "세 가지 학습률로 가중치가 어떻게 바뀌는지 직접 계산해보자."</p>
+        <p><span class="speaker">온유:</span> "학습률이 너무 크면 문제가 생긴다고 했는데, 왜 그런지도 생각해봐."</p>
       </div>
-      <img src="assessment-images/activation_functions_unlabeled.png" alt="활성화함수 그래프">
-      <p class="question-text">그래프 (다)의 활성화함수는 (<span class="blank">&nbsp;</span>)이다.</p>
+      <img src="assessment-images/gradient_descent_mountain.jpg" alt="경사하강법 비유" class="img-sm">
+      <div class="given-box">
+현재 가중치: w = 5.0<br>
+기울기(gradient): &minus;3
+      </div>
+      <div class="formula">w<sub>new</sub> = w<sub>old</sub> &minus; 학습률 &times; 기울기</div>
+      <table class="styled-table">
+        <thead>
+          <tr><th></th><th>학습률</th><th>w<sub>new</sub></th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>(1)</strong></td><td>0.1</td><td class="blank-cell"></td></tr>
+          <tr><td><strong>(2)</strong></td><td>0.8</td><td class="blank-cell"></td></tr>
+          <tr><td><strong>(3)</strong></td><td>1.5</td><td class="blank-cell"></td></tr>
+        </tbody>
+      </table>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(4)</span> (3)처럼 학습률이 클 때 어떤 문제가 생길 수 있을까요? 한 문장으로 써주세요.
+          <div class="answer-area" data-label="(4) 큰 학습률의 문제"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-4 -->
+  <!-- A-4 [4점, 6차시] 순전파 계산 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-4</span>
-      <span class="q-meta">CO | 3차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">6차시 | 순전파 계산</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">신경망에서 입력이 층을 지나며 출력까지 전달되는 과정을 순전파(Forward Pass)라고 합니다. 각 층에서 가중합을 구하고 활성화함수를 적용합니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 2층 신경망의 순전파 과정을 단계별로 계산하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">현지:</span> "그럼 0 이하면 싹 다 0이고, 양수면 그대로 통과하는 건?"</p>
+        <p><span class="speaker">하임:</span> "이 2층 신경망의 순전파를 해보자. 입력이 2이고, 은닉층과 출력층에 각각 가중치와 편향이 주어져 있어."</p>
+        <p><span class="speaker">현지:</span> "ReLU를 통과시키면서 단계별로 계산하면 되겠지?"</p>
+        <p><span class="speaker">하임:</span> "마지막에 ReLU가 없으면 어떻게 될지도 생각해봐."</p>
       </div>
-      <p class="question-text">그래프 (가)의 활성화함수는 (<span class="blank">&nbsp;</span>)이다.</p>
+      <img src="assessment-images/forward_pass_student.png" alt="2층 신경망 순전파 다이어그램">
+      <div class="given-box">
+[입력] x = 2<br><br>
+[은닉층] 가중치 w&#8321; = 3, &nbsp; 편향 b&#8321; = &minus;1, &nbsp; 활성화: ReLU<br>
+[출력층] 가중치 w&#8322; = &minus;0.5, &nbsp; 편향 b&#8322; = 4, &nbsp; 활성화: ReLU<br><br>
+<em>※ 가중합 = 가중치 &times; 입력 + 편향, &nbsp; ReLU(z) = max(0, z)</em>
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 은닉층의 가중합 z&#8321;과 활성화 출력 h&#8321;을 구하세요. (풀이과정 포함)
+          <div class="answer-area" data-label="(1) h&#8321;"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 출력층의 가중합 z&#8322;를 구하세요.
+          <div class="answer-area" data-label="(2) z&#8322;"></div>
+        </li>
+        <li><span class="sub-q-label">(3)</span> output의 값은 얼마인가요?
+          <div class="answer-area" data-label="(3) output"></div>
+        </li>
+        <li><span class="sub-q-label">(4)</span> 만약 ReLU가 없다면, 이 네트워크의 입출력 관계는 어떤 형태가 될까요? x에 대한 식으로 써주세요.
+          <div class="answer-area" data-label="(4) 선형 관계식"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-5 -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       완성/매칭형 (4문항, 12점)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="sub-section-header">
+    <h3>개념 적용 평가형</h3>
+    <span class="sub-pts">4문항 / 12점</span>
+  </div>
+
+  <!-- A-5 [3점, 3차시] 활성화함수 그래프 매칭 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-5</span>
-      <span class="q-meta">CO | 4차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">3차시 | 활성화함수 그래프 매칭</span>
+      <span class="q-points">3점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">활성화함수는 신경망에 비선형성을 부여하는 핵심 장치입니다. 종류마다 그래프 모양과 특성이 다릅니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 각 그래프에 해당하는 활성화함수의 이름을 작성하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">온유:</span> "AI가 학습하면서 이 값이 점점 줄어들잖아."</p>
-        <p><span class="speaker">하은:</span> "맞아. 이걸 재는 함수 이름이..."</p>
+        <p><span class="speaker">현지:</span> "이 그래프들 봐. 세 개 다 모양이 다른데, 어떤 게 어떤 활성화함수인지 알겠어?"</p>
+        <p><span class="speaker">하임:</span> "보기가 네 개인데 그래프는 세 개야. 하나는 함정이겠지?"</p>
+        <p><span class="speaker">현지:</span> "각 그래프의 모양과 특징을 잘 보고 맞춰보자."</p>
       </div>
-      <img src="assessment-images/loss_decreasing.jpg" alt="손실 감소 그래프" class="img-sm">
-      <p class="question-text">예측값과 실제값의 차이를 측정하는 함수를 (<span class="blank">&nbsp;</span>)이라 한다.</p>
+      <img src="assessment-images/activation_functions_unlabeled.png" alt="활성화함수 그래프 3종">
+      <div class="condition-box">
+        <strong>보기:</strong> Sigmoid, ReLU, Tanh, Step
+      </div>
+      <table class="styled-table">
+        <thead>
+          <tr><th>그래프</th><th>특징</th><th>활성화함수 이름</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>①</strong></td><td>S자 곡선, 출력 범위 0~1</td><td class="blank-cell"></td></tr>
+          <tr><td><strong>②</strong></td><td>x &lt; 0이면 0, x &ge; 0이면 y = x인 꺾은 직선</td><td class="blank-cell"></td></tr>
+          <tr><td><strong>③</strong></td><td>S자 곡선, 출력 범위 &minus;1~1</td><td class="blank-cell"></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
-  <!-- A-6 -->
+  <!-- A-6 [4점, 7차시] 원-핫 인코딩 + 벡터 연산 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-6</span>
-      <span class="q-meta">CO | 5차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">7차시 | 원-핫 인코딩과 벡터 연산</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">컴퓨터는 숫자만 이해합니다. 단어를 숫자로 바꾸는 방법 중 원-핫 인코딩은 가장 단순한 방식이고, 임베딩 벡터는 의미까지 담을 수 있는 방식입니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 원-핫 인코딩 표를 완성하고 벡터 연산을 수행하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">온유:</span> "그리고 줄이려고 이동하는데, 한 번에 얼마나 움직일지를 정하는 값도 있잖아."</p>
+        <p><span class="speaker">윤지:</span> "원-핫 인코딩은 단어를 벡터로 바꾸는 거잖아. 사전이 {사과, 바나나, 포도}면 사과가 [1, 0, 0]이 되는 거지?"</p>
+        <p><span class="speaker">은하:</span> "그러면 바나나랑 포도는?"</p>
+        <p><span class="speaker">윤지:</span> "그것도 직접 해보고, 그 다음에 워드벡터 연산도 해보자!"</p>
       </div>
-      <img src="assessment-images/gradient_descent_comparison.png" alt="경사하강법 비교">
-      <p class="question-text">이동 폭을 결정하는 값을 (<span class="blank">&nbsp;</span>)이라 한다.</p>
+      <img src="assessment-images/word_vectors_student.png" alt="워드벡터 공간">
+
+      <p class="question-text">(1) 단어 사전이 {사과, 바나나, 포도}일 때, 빈칸을 채워 원-핫 인코딩을 완성해보세요.</p>
+      <table class="styled-table">
+        <thead>
+          <tr><th>단어</th><th>벡터</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>사과</td><td>[1, 0, 0]</td></tr>
+          <tr><td>바나나</td><td class="blank-cell">[ ?, ?, ? ]</td></tr>
+          <tr><td>포도</td><td class="blank-cell">[ ?, ?, ? ]</td></tr>
+        </tbody>
+      </table>
+
+      <p class="question-text" style="margin-top:1.2rem;">(2) 다음 단어 벡터가 주어졌을 때, <strong>"서울 &minus; 한국 + 일본"</strong>을 계산하고, 결과 벡터가 어떤 단어를 가리키는지 추론해보세요.</p>
+      <div class="given-box">
+서울 = [3, 1], &nbsp; 한국 = [2, 0], &nbsp; 일본 = [2, 1]
+      </div>
+      <div class="answer-area" data-label="(2) 벡터 연산: [ , ] = 어떤 단어?"></div>
     </div>
   </div>
 
-  <!-- A-7 -->
+  <!-- A-7 [2점, 8차시] 다음 토큰 확률 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-7</span>
-      <span class="q-meta">AL | 2차시</span>
+      <span class="q-meta">8차시 | 다음 토큰 확률</span>
       <span class="q-points">2점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">AI 언어 모델은 "다음에 올 단어의 확률"을 계산하여 글을 생성합니다. 모든 후보 토큰의 확률을 합하면 반드시 1이 됩니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 확률 표의 빈칸을 채우고 가장 높은 확률의 토큰을 찾으세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">하임:</span> "퍼셉트론이 학습할 때, 예측이 틀리면 어떻게 해?"</p>
-        <p><span class="speaker">현지:</span> "가중치를... 뭔가 하고, 맞으면 그냥 놔두는 거잖아."</p>
+        <p><span class="speaker">은하:</span> "AI가 '오늘 날씨가 정말' 다음에 올 단어의 확률을 이렇게 예측했대."</p>
+        <p><span class="speaker">윤지:</span> "확률 합이 1이어야 한다고 했으니까, 빈칸을 채울 수 있겠네?"</p>
       </div>
-      <p class="question-text">퍼셉트론 학습에서 예측이 틀리면 가중치를 (<span class="blank">&nbsp;</span>)하고, 맞으면 (<span class="blank">&nbsp;</span>)한다.</p>
+      <img src="assessment-images/next_token_student.png" alt="다음 토큰 예측" class="img-sm">
+      <table class="styled-table">
+        <thead>
+          <tr><th>다음 토큰 후보</th><th>확률</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>좋다</td><td>0.40</td></tr>
+          <tr><td>맑다</td><td>0.25</td></tr>
+          <tr><td>춥다</td><td class="blank-cell">( &#9312; )</td></tr>
+          <tr><td>덥다</td><td>0.10</td></tr>
+          <tr><td>나쁘다</td><td>0.10</td></tr>
+        </tbody>
+      </table>
+      <div class="condition-box">
+        <strong>조건:</strong> 모든 토큰의 확률 합 = 1
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> &#9312;의 값은 얼마인가요?
+          <div class="answer-area" data-label="(1) &#9312;의 값"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> AI가 가장 높은 확률로 선택하는 토큰은 무엇인가요?
+          <div class="answer-area" data-label="(2) 가장 높은 확률 토큰"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-8 -->
+  <!-- A-8 [3점, 8차시] 어텐션 메커니즘 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-8</span>
-      <span class="q-meta">AL | 5차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">8차시 | 어텐션 메커니즘</span>
+      <span class="q-points">3점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">대형 언어 모델(LLM)은 문장 속 각 단어가 다른 단어들과 얼마나 관련 있는지를 점수로 계산하는 "어텐션(Attention)" 메커니즘을 사용합니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 어텐션 점수 표를 분석하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">하은:</span> "공식이 뭐였더라... w<sub>new</sub>는..."</p>
+        <p><span class="speaker">서연:</span> "문장이 길어지면 앞부분을 까먹는 문제가 있었대. 어텐션이 그걸 해결했고."</p>
+        <p><span class="speaker">민준:</span> "각 단어마다 '어디를 집중해서 볼지' 점수를 매기는 거래."</p>
+        <p><span class="speaker">서연:</span> "아래 표에서 '잤다'가 어떤 단어에 주목하는지 분석해보자."</p>
       </div>
-      <p class="question-text">가중치 업데이트 공식: w<sub>new</sub> = w<sub>old</sub> - (<span class="blank">&nbsp;</span>) x (<span class="blank">&nbsp;</span>)</p>
+      <p>다음은 "고양이가 매트 위에서 잠을 잤다"에서 <strong>"잤다"</strong>가 다른 단어에 부여한 어텐션 점수입니다.</p>
+      <table class="styled-table">
+        <thead>
+          <tr><th>대상 단어</th><th>고양이가</th><th>매트</th><th>위에서</th><th>잠을</th><th>잤다</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>어텐션 점수</strong></td><td>0.35</td><td>0.05</td><td>0.05</td><td>0.45</td><td>0.10</td></tr>
+        </tbody>
+      </table>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> "잤다"가 가장 주목하는 단어와 두 번째로 주목하는 단어를 어텐션 점수를 근거로 고르세요.
+          <div class="answer-area" data-label="(1) 1순위, 2순위 단어"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 어텐션 점수 5개의 합을 구하세요. 이 합이 항상 같은 값이 되는 이유를 "확률"이라는 단어를 사용하여 설명하세요.
+          <div class="answer-area" data-label="(2) 합 + 이유"></div>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-9 -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       알고리즘 절차형 (3문항, 13점)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="sub-section-header">
+    <h3>알고리즘 절차형</h3>
+    <span class="sub-pts">1문항 / 4점</span>
+  </div>
+
+  <!-- A-9 [4점, 6차시] 역전파 4단계 순서+역할 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-9</span>
-      <span class="q-meta">CO | 7차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">6차시 | 역전파 4단계 순서와 역할</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">역전파(Backpropagation)는 "출력의 오차를 거꾸로 추적하여 각 가중치의 책임을 계산하는" 알고리즘입니다. 신경망이 스스로 학습할 수 있게 된 핵심 발견입니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 신경망 학습 4단계를 올바른 순서로 배열하고 각 단계의 역할을 설명하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">은하:</span> "맞다! 그리고 애초에 AI가 글을 쓰려면 단어를 쪼개야 한다고 했잖아."</p>
+        <p><span class="speaker">현지:</span> "이 4장 카드를 순서대로 놓아봐. 신경망 학습의 4단계야."</p>
+        <p><span class="speaker">하임:</span> "순전파가 먼저인 건 알겠는데, 그 다음이 뭐지? 오차 계산? 역전파?"</p>
+        <p><span class="speaker">현지:</span> "순서를 맞추고, 각 단계가 뭘 하는지도 한 줄로 써봐."</p>
       </div>
-      <img src="assessment-images/bpe_tokenization.jpg" alt="BPE 토큰화">
-      <p class="question-text">단어를 의미 단위로 분절하는 토큰화 방식을 (<span class="blank">&nbsp;</span>)이라 한다.</p>
+      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <div class="condition-box">
+        <strong>보기:</strong> &nbsp; ㄱ. 가중치 업데이트 &nbsp;&nbsp; ㄴ. 오차 계산 &nbsp;&nbsp; ㄷ. 순전파 &nbsp;&nbsp; ㄹ. 역전파
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 올바른 순서로 배열해보세요.
+          <div class="answer-area" data-label="(1) 올바른 순서"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 각 단계의 핵심 역할을 한 줄로 써주세요.
+          <table class="styled-table" style="margin-top:0.5rem;">
+            <thead>
+              <tr><th>순서</th><th>단계</th><th>핵심 역할</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td class="blank-cell"></td><td class="blank-cell"></td></tr>
+              <tr><td>2</td><td class="blank-cell"></td><td class="blank-cell"></td></tr>
+              <tr><td>3</td><td class="blank-cell"></td><td class="blank-cell"></td></tr>
+              <tr><td>4</td><td class="blank-cell"></td><td class="blank-cell"></td></tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- A-10 -->
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       시각 해석형 (2문항, 7점)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="sub-section-header">
+    <h3>데이터 해석 평가형</h3>
+    <span class="sub-pts">2문항 / 7점</span>
+  </div>
+
+  <!-- A-10 [4점, 5차시] 학습률 그래프 해석 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">A-10</span>
-      <span class="q-meta">CO | 8차시</span>
-      <span class="q-points">2점</span>
+      <span class="q-meta">5차시 | 학습률 그래프 해석</span>
+      <span class="q-points">4점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">학습률은 경사하강법에서 "한 걸음의 크기"를 결정합니다. 너무 작으면 영원히 도착하지 못하고, 너무 크면 목적지를 지나쳐 버립니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 세 그래프를 분석하여 각각의 학습률을 판단하고 그 이유를 설명하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">은하:</span> "야, ChatGPT한테 물어봤더니 없는 논문을 인용하는 거야!"</p>
-        <p><span class="speaker">윤지:</span> "그게 수업에서 배운 그 현상이잖아. 이름이..."</p>
+        <p><span class="speaker">온유:</span> "이 세 그래프를 보자. 같은 문제인데 학습률만 달라."</p>
+        <p><span class="speaker">하은:</span> "하나는 느리게 줄어들고, 하나는 잘 수렴하고, 하나는 미친 듯이 진동하네."</p>
+        <p><span class="speaker">온유:</span> "어떤 그래프가 어떤 학습률인지 맞춰보고, 진동하는 건 왜 그런지도 설명해봐."</p>
       </div>
-      <img src="assessment-images/ai_hallucination.jpg" alt="AI 환각">
-      <p class="question-text">AI가 사실이 아닌 내용을 생성하는 현상을 (<span class="blank">&nbsp;</span>)이라 한다.</p>
+      <img src="assessment-images/gradient_descent_student.png" alt="학습률 비교 그래프 3종">
+      <div class="given-box">
+[그래프 A] 매우 느리게 감소. 100 epoch 후에도 아직 수렴 안 됨.<br>
+[그래프 B] 빠르게 감소하여 안정적으로 수렴.<br>
+[그래프 C] 위아래로 크게 진동. 수렴하지 못함.
+      </div>
+      <div class="condition-box">
+        <strong>보기 학습률:</strong> 0.001, &nbsp; 0.1, &nbsp; 2.0
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 각 그래프에 해당하는 학습률을 연결해보세요.
+          <table class="styled-table" style="margin-top:0.5rem;">
+            <thead>
+              <tr><th>그래프</th><th>학습률</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A</td><td class="blank-cell"></td></tr>
+              <tr><td>B</td><td class="blank-cell"></td></tr>
+              <tr><td>C</td><td class="blank-cell"></td></tr>
+            </tbody>
+          </table>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 그래프 C에서 손실이 줄어들지 않는 이유를 "학습률"이라는 단어를 사용하여 설명하세요.
+          <div class="answer-area" data-label="(2) 원인 설명"></div>
+        </li>
+      </ul>
     </div>
   </div>
+
+  <!-- A-11 [3점, 2차시] XOR 좌표 분류 -->
+  <div class="q-card">
+    <div class="q-card-header">
+      <span class="q-number">A-11</span>
+      <span class="q-meta">2차시 | XOR 좌표 분류 판단</span>
+      <span class="q-points">3점</span>
+    </div>
+    <div class="q-body">
+      <p class="q-context">1969년 민스키는 퍼셉트론의 한계에 대해 중요한 문제를 제기했습니다. 이것이 AI 역사의 전환점이 되었습니다. 직접 좌표를 보고 판단해봅시다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 좌표평면 위 데이터를 직선 하나로 분리할 수 있는지 판단하고 그 이유를 작성하세요.</strong></p>
+      <div class="dialogue">
+        <p><span class="speaker">현지:</span> "이 좌표평면을 봐. 4개의 점이 있는데, &#9675;이랑 &#9679;가 대각선으로 배치돼 있어."</p>
+        <p><span class="speaker">하임:</span> "직선 하나로 &#9675;과 &#9679;를 나눌 수 있을까?"</p>
+        <p><span class="speaker">현지:</span> "될까, 안 될까? 이유도 같이 설명해봐."</p>
+      </div>
+      <img src="assessment-images/xor_student.png" alt="XOR 좌표평면">
+      <div class="given-box">
+&#9675; (0,0) &nbsp;&nbsp; &#9679; (1,0)<br>
+&#9679; (0,1) &nbsp;&nbsp; &#9675; (1,1)<br><br>
+&#9675;과 &#9679;는 서로 다른 그룹이다.
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 이 4개의 점을 &#9675;과 &#9679;로 나누는 <strong>직선 1개를</strong> 그을 수 있나요? 가능하면 좌표평면에 그려보세요.
+          <div class="answer-area" data-label="(1) 가능/불가능 + 시도"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 이 결과가 <strong>단층 퍼셉트론의 어떤 한계</strong>를 보여주며, AI 역사에 어떤 영향을 미쳤는지 설명해주세요.
+          <div class="answer-area" data-label="(2) 한계 + 역사적 영향"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       판단+근거형 (3문항, 11점)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="sub-section-header">
+    <h3>비판적 사고 평가형</h3>
+    <span class="sub-pts">2문항 / 6점</span>
+  </div>
+
+  <!-- A-12 [3점, 3차시] 활성화함수 없는 깊은 신경망 -->
+  <div class="q-card">
+    <div class="q-card-header">
+      <span class="q-number">A-12</span>
+      <span class="q-meta">3차시 | 활성화함수 없는 깊은 신경망</span>
+      <span class="q-points">3점</span>
+    </div>
+    <div class="q-body">
+      <p class="q-context">"층을 많이 쌓으면 더 똑똑해지지 않을까?" 이 질문에 답하려면 활성화함수가 왜 필수인지 이해해야 합니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 영수의 주장이 맞는지 판단하고 그 근거를 작성하세요.</strong></p>
+      <div class="dialogue">
+        <p><span class="speaker">하은:</span> "영수가 '활성화함수 없어도 은닉층을 100개 쌓으면 XOR이 풀린다'고 주장하는데, 맞는 말이야?"</p>
+        <p><span class="speaker">온유:</span> "음... 활성화함수가 없으면 각 층에서 하는 계산이 뭔지 생각해봐."</p>
+        <p><span class="speaker">하은:</span> "곱하기랑 더하기... 그러면 층을 아무리 쌓아도 결국 어떤 함수가 될까?"</p>
+      </div>
+      <img src="assessment-images/linear_composition_student.png" alt="선형 합성">
+      <div class="quote-box">
+        "활성화함수가 없어도, 은닉층을 100개 쌓으면 XOR 문제를 해결할 수 있다." &mdash; 영수의 주장
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> 이 주장은 맞을까요, 틀릴까요?
+          <div class="answer-area" data-label="(1) 맞다/틀리다"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> 활성화함수 없이 층을 쌓으면 최종 출력이 어떤 형태의 함수가 되는지 밝히고, 이를 근거로 영수의 주장이 왜 틀린지 설명해주세요.
+          <div class="answer-area" data-label="(2) 근거 설명"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A-13 [3점, 8차시] Temperature와 AI 출력 -->
+  <div class="q-card">
+    <div class="q-card-header">
+      <span class="q-number">A-13</span>
+      <span class="q-meta">8차시 | Temperature와 AI 출력</span>
+      <span class="q-points">3점</span>
+    </div>
+    <div class="q-body">
+      <p class="q-context">Temperature는 AI가 다음 토큰을 선택할 때 "얼마나 모험적으로 고를지"를 조절하는 파라미터입니다. 같은 질문에도 Temperature에 따라 전혀 다른 답이 나옵니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 어떤 출력의 Temperature가 높은지 판단하고 그 이유를 설명하세요.</strong></p>
+      <div class="dialogue">
+        <p><span class="speaker">은하:</span> "같은 질문인데 AI가 두 번 다르게 대답했어. Temperature 설정이 달라서래."</p>
+        <p><span class="speaker">윤지:</span> "출력 A는 평범한데, 출력 B는 완전 엉뚱하잖아. Temperature가 뭐길래 이렇게 다른 거야?"</p>
+        <p><span class="speaker">은하:</span> "확률 분포가 어떻게 변하는지 설명해봐."</p>
+      </div>
+      <div class="output-box">
+        <div class="output-label">출력 A</div>
+        <p>"봄이 오면 꽃이 피고 날씨가 따뜻해집니다."</p>
+      </div>
+      <div class="output-box">
+        <div class="output-label">출력 B</div>
+        <p>"봄이 오면 고양이가 우주를 여행하며 별자리를 수집합니다."</p>
+      </div>
+      <ul class="sub-questions">
+        <li><span class="sub-q-label">(1)</span> Temperature가 <strong>높은</strong> 출력은 A, B 중 어느 것인가요?
+          <div class="answer-area" data-label="(1) A 또는 B"></div>
+        </li>
+        <li><span class="sub-q-label">(2)</span> Temperature가 높으면 확률 분포가 어떻게 변하는지 설명해주세요.
+          <div class="answer-area" data-label="(2) 확률 분포 변화"></div>
+        </li>
+        <li><span class="sub-q-label">(3)</span> Temperature를 0에 가깝게 설정하면 AI 출력은 어떤 특징을 가질까요?
+          <div class="answer-area" data-label="(3) Temperature ~0 특징"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
 </section>
 
 <!-- ============================================================
-     PART B: 계산형
+     TRACK B: 키워드 서술형 (25점, 5문항)
      ============================================================ -->
-<section id="part-b" class="part-section part-b">
+<section id="track-b" class="part-section track-b">
   <div class="part-header">
     <div class="part-icon">B</div>
     <div class="part-title-group">
-      <h2>Part B: 수학적 이해 (계산형)</h2>
-      <div class="part-desc">9문항 | 풀이 과정 필수</div>
+      <h2>Track B: 키워드 서술형</h2>
+      <div class="part-desc">5문항 | 25점 | 필수 키워드를 모두 사용하여 서술</div>
     </div>
   </div>
 
   <div class="info-box purple">
-    <strong>안내:</strong> 아래 연습 문제의 풀이 과정과 정답이 공개됩니다. 실제 시험에서는 <strong>숫자만 변경</strong>되며, 난이도는 동일합니다. 풀이 과정을 반드시 쓰세요.
+    <strong>안내:</strong> 제시된 필수 키워드를 <strong>모두 사용</strong>하여 서술하세요. 키워드는 답안에서 <strong>밑줄을 그어</strong> 채점자가 확인할 수 있게 해주세요.
   </div>
 
-  <!-- B-1 -->
+  <!-- B-1 [4점, 2차시] XOR 한계와 AI 겨울 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">B-1</span>
-      <span class="q-meta">MA | 2차시 | 퍼셉트론 출력 계산</span>
-      <span class="q-points">계산</span>
+      <span class="q-meta">2차시 | XOR 한계와 AI 겨울</span>
+      <span class="q-points">5점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">AI 역사에는 희망과 좌절이 반복됩니다. 1958년 퍼셉트론의 탄생은 큰 기대를 불러일으켰지만, 1969년의 한 권의 책이 그 기대를 무너뜨렸습니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 필수 키워드를 모두 사용하여 퍼셉트론의 한계가 AI 겨울을 초래한 과정을 서술하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">하임:</span> "이 그림 봐. 이게 AND 게이트야."</p>
-        <p><span class="speaker">현지:</span> "가중치가 w<sub>1</sub>=1, w<sub>2</sub>=1이고 편향이 -1.5래. 입력을 (1, 0)으로 넣으면?"</p>
+        <p><span class="speaker">온유:</span> "로젠블랫이 만든 퍼셉트론이 대단한 발명이었는데, 왜 AI 겨울이 온 거야?"</p>
+        <p><span class="speaker">하은:</span> "누군가가 퍼셉트론의 한계를 수학적으로 증명해서 모든 기대가 무너진 거래."</p>
+        <p><span class="speaker">온유:</span> "그 과정을 자세히 써보자."</p>
       </div>
-      <img src="assessment-images/perceptron_diagram.png" alt="퍼셉트론 구조도">
-      <p class="question-text">가중합과 출력을 구하시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>가중합 = 1x1 + 0x1 + (-1.5) = -0.5 &rarr; 출력 = <strong>0</strong></p>
+      <img src="assessment-images/rosenblatt.jpg" alt="로젠블랫과 퍼셉트론 역사" class="img-sm">
+      <p class="question-text">다음 키워드를 <strong>모두 사용</strong>하여, "퍼셉트론의 한계가 AI 겨울을 초래한 과정"을 4문장 이내로 설명해주세요.</p>
+      <div class="keyword-box">
+        <div class="kw-label">필수 키워드</div>
+        <span class="keyword-tag">XOR</span>
+        <span class="keyword-tag">직선(선형)</span>
+        <span class="keyword-tag">민스키</span>
       </div>
+      <div class="answer-area tall" data-label="답안 작성란"></div>
     </div>
   </div>
 
-  <!-- B-2 -->
+  <!-- B-2 [4점, 3+5차시] ReLU와 GPU - 딥러닝 부활 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">B-2</span>
-      <span class="q-meta">MA | 3차시 | 선형 합성 증명</span>
-      <span class="q-points">계산</span>
+      <span class="q-meta">3+5차시 | 딥러닝 부활의 세 가지 열쇠</span>
+      <span class="q-points">5점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">약 20년간의 AI 겨울 이후, 세 가지 돌파구가 딥러닝을 부활시켰습니다. 활성화함수의 혁신, 컴퓨팅 파워의 도약, 그리고 대규모 데이터의 등장이었습니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 필수 키워드를 모두 사용하여 딥러닝 부활의 세 가지 핵심 요인을 서술하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">하은:</span> "선생님이 '활성화함수 없이 층을 쌓으면 의미가 없다'고 했는데, 이 그림이 그 뜻이야?"</p>
-        <p><span class="speaker">온유:</span> "직접 계산해보면 바로 알 수 있어."</p>
+        <p><span class="speaker">현지:</span> "AI 겨울이 끝나고 딥러닝이 부활한 게 2012년이라고 했잖아."</p>
+        <p><span class="speaker">하임:</span> "그때 세 가지가 핵심이었대. 활성화함수를 바꾼 것, 컴퓨팅 파워가 달라진 것, 그리고 학습시킬 데이터가 폭발적으로 늘어난 것."</p>
+        <p><span class="speaker">현지:</span> "왜 그 세 가지가 중요했는지 정리해보자."</p>
       </div>
-      <img src="assessment-images/linear_composition.png" alt="선형 합성">
-      <p class="question-text">y = 2x + 1, z = 3y + 4일 때 z를 x로 나타내고, 의미를 한 문장으로 쓰시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>z = 3(2x + 1) + 4 = 6x + 3 + 4 = <strong>6x + 7</strong> (여전히 1차식)</p>
-        <p>의미: 활성화함수 없이 선형 층을 쌓으면, 아무리 많이 쌓아도 하나의 선형 함수와 동일하다.</p>
+      <p class="question-text">다음 키워드를 <strong>모두 사용</strong>하여, "딥러닝이 부활할 수 있었던 세 가지 핵심 요인"을 설명해주세요.</p>
+      <div class="keyword-box">
+        <div class="kw-label">필수 키워드</div>
+        <span class="keyword-tag">기울기 소실</span>
+        <span class="keyword-tag">병렬 연산</span>
+        <span class="keyword-tag">ImageNet</span>
+        <span class="keyword-tag">AlexNet</span>
       </div>
+      <div class="answer-area tall" data-label="답안 작성란"></div>
     </div>
   </div>
 
-  <!-- B-3 -->
+  <!-- B-3 [4점, 7+8차시] AI 환각의 구조적 원인 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">B-3</span>
-      <span class="q-meta">MA | 4차시 | MSE 계산</span>
-      <span class="q-points">계산</span>
+      <span class="q-meta">7+8차시 | AI 환각은 왜 발생하는가</span>
+      <span class="q-points">5점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">ChatGPT에게 "독도의 역사를 알려줘"라고 물었더니, 실제로 존재하지 않는 조약 이름을 자신 있게 답했습니다. 이처럼 AI가 "그럴듯하지만 사실이 아닌 정보"를 만들어내는 현상을 환각(Hallucination)이라고 합니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 필수 키워드를 모두 사용하여 위 상황이 왜 발생하는지 AI의 작동 원리로 설명하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">현공:</span> "우리 AI가 3일간 기온을 예측했어. 얼마나 틀렸는지 MSE로 계산해보자."</p>
-        <p><span class="speaker">은하:</span> "오차를 제곱하고 평균 내면 되는 거지?"</p>
+        <p><span class="speaker">윤지:</span> "ChatGPT한테 물어봤더니 없는 조약 이름을 자신 있게 말했어!"</p>
+        <p><span class="speaker">은하:</span> "그게 환각 현상이잖아. 근데 AI가 일부러 거짓말하는 건 아니래."</p>
+        <p><span class="speaker">윤지:</span> "그러면 왜 이런 일이 생기는 거야? 8차시에서 배운 AI 작동 원리로 설명해봐."</p>
       </div>
-      <img src="assessment-images/mse_outlier_comparison.png" alt="MSE 이상치 비교">
-      <p class="question-text">예측 [4&#8451;, 2&#8451;, 6&#8451;], 실제 [3&#8451;, 2&#8451;, 9&#8451;]일 때 MSE를 구하시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>오차: (4-3)=1, (2-2)=0, (6-9)=-3</p>
-        <p>오차 제곱: 1, 0, 9</p>
-        <p>합: 1+0+9 = 10</p>
-        <p>MSE = 10/3 &asymp; <strong>3.33</strong></p>
+      <img src="assessment-images/ai_hallucination.jpg" alt="AI 환각 현상" class="img-sm">
+      <p class="question-text">다음 키워드를 <strong>모두 사용</strong>하여, "위 상황에서 AI가 틀린 답을 자신 있게 말한 이유"를 설명해주세요.</p>
+      <div class="keyword-box">
+        <div class="kw-label">필수 키워드</div>
+        <span class="keyword-tag">학습 데이터</span>
+        <span class="keyword-tag">확률</span>
+        <span class="keyword-tag">다음 토큰</span>
       </div>
+      <div class="answer-area tall" data-label="답안 작성란"></div>
     </div>
   </div>
 
-  <!-- B-4 -->
+  <!-- B-4 [4점, 4-6차시] 손실 -> 경사하강 -> 역전파 -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">B-4</span>
-      <span class="q-meta">MA | 4차시 | 이상치와 MSE</span>
-      <span class="q-points">계산</span>
+      <span class="q-meta">4~6차시 | 손실 &rarr; 경사하강 &rarr; 역전파</span>
+      <span class="q-points">5점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">4~6차시에 걸쳐 배운 세 가지 핵심 개념은 각각 다른 역할을 하지만, 함께 작동하여 신경망이 스스로 학습할 수 있게 만듭니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 필수 키워드를 모두 사용하여 손실함수, 경사하강법, 역전파의 역할과 연결 관계를 서술하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">현공:</span> "위 그래프를 봐. 데이터 하나가 엄청 벗어나 있어. 제곱이니까 MSE에 영향이 클 것 같은데..."</p>
-        <p><span class="speaker">은하:</span> "얼마나 차이 나는지 직접 계산해보자!"</p>
+        <p><span class="speaker">현공:</span> "4차시, 5차시, 6차시에서 배운 세 가지가 결국 하나로 이어진다고 했잖아."</p>
+        <p><span class="speaker">하임:</span> "맞아. 손실함수로 재고, 경사하강법으로 줄이고, 역전파로 전달하는 거지?"</p>
+        <p><span class="speaker">현공:</span> "각각의 역할을 키워드로 정리해서 써보자."</p>
       </div>
-      <img src="assessment-images/mse_outlier_comparison.png" alt="MSE 이상치 비교">
-      <p class="question-text">데이터 A, B 각각의 MSE를 구하고 이상치의 영향을 설명하시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>A: 오차 (1, 0, -1) &rarr; 제곱 (1, 0, 1) &rarr; MSE = 2/3 &asymp; <strong>0.67</strong></p>
-        <p>B: 오차 (1, 0, -13) &rarr; 제곱 (1, 0, 169) &rarr; MSE = 170/3 &asymp; <strong>56.67</strong></p>
-        <p>이상치 하나로 MSE가 약 85배 커졌다. MSE는 오차를 제곱하므로 큰 오차에 매우 민감하다.</p>
+      <p class="question-text">다음 키워드를 <strong>모두 사용</strong>하여, "신경망이 스스로 학습하는 과정에서 손실함수, 경사하강법, 역전파가 각각 어떤 역할을 하는지"를 설명해주세요.</p>
+      <div class="keyword-box">
+        <div class="kw-label">필수 키워드</div>
+        <span class="keyword-tag">측정</span>
+        <span class="keyword-tag">방향</span>
+        <span class="keyword-tag">자동화</span>
       </div>
+      <div class="answer-area tall" data-label="답안 작성란"></div>
     </div>
   </div>
 
-  <!-- B-5 -->
+  <!-- B-5 [5점, 전체] "기계가 생각할 수 있는가?" -->
   <div class="q-card">
     <div class="q-card-header">
       <span class="q-number">B-5</span>
-      <span class="q-meta">MA | 5차시 | 가중치 업데이트</span>
-      <span class="q-points">계산</span>
+      <span class="q-meta">전체 통합 | 최종 성찰</span>
+      <span class="q-points">5점</span>
     </div>
     <div class="q-body">
+      <p class="q-context">1차시에서 던진 질문으로 돌아갑니다. 8차시까지 배운 AI의 작동 원리를 근거로, 이제 자신만의 답을 내릴 때입니다.</p>
+      <p class="q-instruction"><strong>다음 대화를 읽고, 키워드 풀에서 3개 이상을 선택하여 "기계가 생각할 수 있는가?"에 대한 자신의 최종 답변을 작성하세요.</strong></p>
       <div class="dialogue">
-        <p><span class="speaker">은하:</span> "지금 내 공이 w=3.0에 있어. 기울기가 4이고 학습률이 0.05면, 한 번 이동하면 어디로 가지?"</p>
-        <p><span class="speaker">현공:</span> "공식에 대입해봐!"</p>
+        <p><span class="speaker">하은:</span> "1차시 첫 수업에서 선생님이 물었잖아. '기계가 생각할 수 있는가?'"</p>
+        <p><span class="speaker">온유:</span> "그때는 막연하게 답했는데, 이제 8차시까지 배우고 나니까 근거를 들어서 말할 수 있을 것 같아."</p>
+        <p><span class="speaker">하은:</span> "배운 개념들을 최대한 활용해서 너의 최종 답변을 써봐."</p>
       </div>
-      <img src="assessment-images/gradient_descent_mountain.jpg" alt="경사하강법 비유">
-      <p class="question-text">업데이트된 가중치를 구하시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>w<sub>new</sub> = w - lr &times; 기울기 = 3.0 - 0.05 &times; 4 = 3.0 - 0.2 = <strong>2.8</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- B-6 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">B-6</span>
-      <span class="q-meta">MA+CT | 5차시 | 학습률 비교</span>
-      <span class="q-points">계산</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">현지:</span> "학습률을 크게 하면 빨리 도착하는 거 아니야?"</p>
-        <p><span class="speaker">현공:</span> "위 그래프를 봐. 세 가지 학습률로 비교해볼까?"</p>
-      </div>
-      <img src="assessment-images/gradient_descent_comparison.png" alt="경사하강법 비교">
-      <p class="question-text">w=5.0, 기울기=-3일 때, lr 0.1/0.8/1.5 각각의 결과와 적절한 학습률을 쓰시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>lr=0.1: 5.0 - 0.1&times;(-3) = 5.0 + 0.3 = <strong>5.3</strong> (안정적 이동)</p>
-        <p>lr=0.8: 5.0 - 0.8&times;(-3) = 5.0 + 2.4 = <strong>7.4</strong> (큰 이동, 진동 가능)</p>
-        <p>lr=1.5: 5.0 - 1.5&times;(-3) = 5.0 + 4.5 = <strong>9.5</strong> (과도한 이동, 발산 위험)</p>
-        <p>적절한 학습률: 0.1. 0.8은 진동할 수 있고, 1.5는 최솟값을 뛰어넘어 발산할 수 있다.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- B-7 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">B-7</span>
-      <span class="q-meta">MA | 6차시 | 순전파 계산</span>
-      <span class="q-points">계산</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">윤지:</span> "입력이 2랑 1이고, 가중치가 0.5랑 -1... 이걸 계산하면?"</p>
-        <p><span class="speaker">하은:</span> "편향 0.5도 더해야 해! 그리고 ReLU 통과시켜야지."</p>
-      </div>
-      <img src="assessment-images/forward_pass_example.jpg" alt="순전파 다이어그램">
-      <p class="question-text">가중합과 ReLU 출력을 구하시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>가중합: z = (2&times;0.5) + (1&times;(-1)) + 0.5 = 1 - 1 + 0.5 = <strong>0.5</strong></p>
-        <p>ReLU(0.5) = <strong>0.5</strong> (양수이므로 그대로)</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- B-8 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">B-8</span>
-      <span class="q-meta">MA | 2~3차시 | 파라미터 수 계산</span>
-      <span class="q-points">계산</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">은하:</span> "어? 이것도 뉴럴 네트워크네?"</p>
-        <p><span class="speaker">현공:</span> "맞아. 그러면 여기엔 학습할 가중치와 편향이 모두 몇 개지?"</p>
-        <p><span class="speaker">은하:</span> "어.. 잠깐.. 층마다 세야 하는 거지?"</p>
-      </div>
-      <img src="assessment-images/nn_3_4_2.png" alt="신경망 3->4->2">
-      <p class="question-text">위 신경망에서 학습할 파라미터는 총 몇 개인가?</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>입력&rarr;은닉: 가중치 3&times;4=12개, 편향 4개 &rarr; 소계 16개</p>
-        <p>은닉&rarr;출력: 가중치 4&times;2=8개, 편향 2개 &rarr; 소계 10개</p>
-        <p>총 <strong>26개</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- B-9 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">B-9</span>
-      <span class="q-meta">MA | 7차시 | 워드벡터 산술</span>
-      <span class="q-points">계산</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">하임:</span> "대박! 왕 - 남자 + 여자 = 여왕이래. 그러면 서울 - 한국 + 일본은?"</p>
-        <p><span class="speaker">현공:</span> "위 그래프를 보고 벡터 연산을 해보자."</p>
-      </div>
-      <img src="assessment-images/word_vectors.png" alt="워드벡터 공간">
-      <p class="question-text">서울=[3,1], 한국=[2,0], 일본=[2,1]일 때 계산 결과와 의미를 쓰시오.</p>
-      <div class="solution-box">
-        <div class="sol-label">공개 풀이</div>
-        <p>[3-2+2, 1-0+1] = <strong>[3, 2]</strong></p>
-        <p>의미: "서울이 한국의 수도이듯, 결과 벡터는 일본의 수도(도쿄)에 해당하는 위치를 가리킨다."</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PART C: 시각분석형
-     ============================================================ -->
-<section id="part-c" class="part-section part-c">
-  <div class="part-header">
-    <div class="part-icon">C</div>
-    <div class="part-title-group">
-      <h2>Part C: 시각 / 분석형</h2>
-      <div class="part-desc">5문항 | 매칭, 순서, 그리기, 서술 | 16점</div>
-    </div>
-  </div>
-
-  <!-- C-1 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">C-1</span>
-      <span class="q-meta">CO | 3차시 | 활성화함수 매칭</span>
-      <span class="q-points">2점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">온유:</span> "이 그래프들이 다 다른데, 어떤 게 어떤 함수인지 헷갈려..."</p>
-        <p><span class="speaker">윤지:</span> "하나씩 특징을 보면 돼. S자는? 꺾인 선은? 음수 쪽도 작은 값이 나오는 건?"</p>
-      </div>
-      <img src="assessment-images/activation_functions_unlabeled.png" alt="활성화함수 그래프 4개">
-      <p class="question-text">각 그래프를 알맞은 함수 이름과 연결하시오.</p>
-    </div>
-  </div>
-
-  <!-- C-2 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">C-2</span>
-      <span class="q-meta">AL | 6차시 | 역전파 순서 배열</span>
-      <span class="q-points">2점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">하임:</span> "이 4장을 순서대로 놓아봐."</p>
-        <p><span class="speaker">현지:</span> "순전파가 먼저인 건 알겠는데, 그 다음이..."</p>
-      </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 순서 배열">
-      <p class="question-text">4단계를 올바른 순서로 배열하시오.</p>
-    </div>
-  </div>
-
-  <!-- C-3 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">C-3</span>
-      <span class="q-meta">MA+CO | 3차시 | ReLU 그래프 + 서술</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">하은:</span> "ReLU 그래프를 직접 그려볼래?"</p>
-        <p><span class="speaker">윤지:</span> "좋아. 그런데 왜 딥러닝에서는 Sigmoid 대신 ReLU를 쓰는 거야? 선생님이 '기울기 소실'이라고 했는데..."</p>
-      </div>
-      <img src="assessment-images/relu_template.png" alt="빈 좌표평면">
-      <p class="question-text">(1) ReLU 그래프를 그리시오. (2) '기울기 소실' 관점에서 이유를 설명하시오.</p>
+      <img src="assessment-images/turing_test_illustration.jpg" alt="튜링 테스트" class="img-sm">
+      <p class="question-text">1차시에서 던진 질문 <strong>"기계가 생각할 수 있는가?"</strong>에 대해, 8차시까지 배운 내용을 바탕으로 자신의 최종 답변을 써주세요.</p>
       <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">기울기 소실</span>
-        <span class="keyword-tag">Sigmoid 기울기 0</span>
-        <span class="keyword-tag">ReLU 기울기 1</span>
-        <span class="keyword-tag">깊은 신경망</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- C-4 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">C-4</span>
-      <span class="q-meta">CO+AL | 3차시 | 활성화함수의 필요성</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">윤지:</span> "이 그래프 봐. 두 개의 선형 함수를 합성해도 결국 직선이야."</p>
-        <p><span class="speaker">온유:</span> "그러면 층을 100개 쌓아도 의미가 없다는 거잖아. 이걸 해결하는 게..."</p>
-      </div>
-      <img src="assessment-images/linear_composition.png" alt="선형 합성">
-      <p class="question-text">활성화함수 없이 층을 쌓으면 왜 의미가 없는지 설명하고, 활성화함수가 부여하는 핵심 성질을 쓰시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">선형 함수 합성 = 선형</span>
-        <span class="keyword-tag">비선형성</span>
-        <span class="keyword-tag">공간 변환</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- C-5 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">C-5</span>
-      <span class="q-meta">CO+MA | 2차시 | 좌표평면 분석</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">현지:</span> "위 그래프를 봐. 아무리 직선을 움직여도 빨강이랑 파랑을 나눌 수 없었잖아."</p>
-        <p><span class="speaker">하임:</span> "왜 안 되는지 설명해볼까?"</p>
-      </div>
-      <img src="assessment-images/xor_coordinate.png" alt="XOR 좌표평면">
-      <p class="question-text">직선 하나로 분리가 가능한지 판단하고 이유를 쓰시오.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     PART D: 서술형 (개별)
-     ============================================================ -->
-<section id="part-d" class="part-section part-d">
-  <div class="part-header">
-    <div class="part-icon">D</div>
-    <div class="part-title-group">
-      <h2>Part D: 서술형 - 개별 주제</h2>
-      <div class="part-desc">6문항 x 4점 = 24점 | 핵심 키워드 공개</div>
-    </div>
-  </div>
-
-  <div class="info-box amber">
-    <strong>채점 안내:</strong> 모든 서술형 문항의 <strong>핵심 키워드</strong>는 사전 공개됩니다. 키워드가 빠지면 감점입니다.<br>
-    3축 평가: (1) 핵심 키워드 포함 (2) 논리적 설명 (3) 적용/확장
-  </div>
-
-  <!-- D-1 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-1</span>
-      <span class="q-meta">CT | 1차시 | 튜링 테스트 vs 중국어 방</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">하은:</span> "나는 ChatGPT가 생각할 수 있다고 봐. 대화가 너무 자연스러웠잖아."</p>
-        <p><span class="speaker">하임:</span> "근데 중국어 방 실험을 생각하면... 이해하는 게 아니라 흉내 아닌가?"</p>
-        <p><span class="speaker">하은:</span> "흠... 너는 어떻게 생각해? 근거를 들어서 말해봐."</p>
-      </div>
-      <img src="assessment-images/turing_test_illustration.jpg" alt="튜링 테스트 개념도">
-      <img src="assessment-images/chinese_room.jpg" alt="중국어 방 사고실험">
-      <p class="question-text">튜링 테스트의 판정 기준과 중국어 방 반박을 각각 설명하고, ChatGPT에 대한 의견을 근거와 함께 쓰시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
+        <div class="kw-label">키워드 풀 (아래에서 3개 이상 선택하여 사용)</div>
         <span class="keyword-tag">튜링 테스트</span>
         <span class="keyword-tag">중국어 방</span>
-        <span class="keyword-tag">구별 불가 = 지능</span>
-        <span class="keyword-tag">이해 vs 흉내</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- D-2 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-2</span>
-      <span class="q-meta">CO+CT | 2+3차시 | XOR 한계와 활성화함수</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">은하:</span> "아직도 기억나. 직선을 아무리 움직여도 XOR이 안 됐잖아."</p>
-        <p><span class="speaker">온유:</span> "맞아. 근데 3차시에서 활성화함수 켜니까 됐잖아. 왜 그런 건지 설명할 수 있어?"</p>
-        <p><span class="speaker">은하:</span> "음... 직선 하나로 안 되니까... 공간을 구부린다고 했나?"</p>
-      </div>
-      <img src="assessment-images/xor_coordinate.png" alt="XOR 좌표평면">
-      <img src="assessment-images/nn_layers_comparison.jpg" alt="단층 vs 다층 비교">
-      <p class="question-text">XOR 한계의 이유와 활성화함수의 극복 방법을 서술하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">직선 분리 불가</span>
-        <span class="keyword-tag">대각선 배치</span>
-        <span class="keyword-tag">비선형성</span>
-        <span class="keyword-tag">공간 변환</span>
-        <span class="keyword-tag">다층 신경망</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- D-3 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-3</span>
-      <span class="q-meta">CO | 4차시 | 손실함수의 정의와 역할</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">윤지:</span> "현지야, 나 동생이 '손실함수가 뭐야?'라고 물어보는데 어떻게 설명하면 좋을까?"</p>
-        <p><span class="speaker">현지:</span> "음... '얼마나 틀렸는지를 재는 자'라고 하면 되지 않을까?"</p>
-        <p><span class="speaker">윤지:</span> "근데 왜 필요한지도 설명해야 해."</p>
-      </div>
-      <img src="assessment-images/loss_function_target.jpg" alt="손실함수 과녁 비유">
-      <p class="question-text">손실함수의 정의와 신경망 학습에서의 역할을 설명하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">예측값과 실제값의 차이</span>
-        <span class="keyword-tag">수치화</span>
-        <span class="keyword-tag">손실 줄이기 = 학습</span>
-        <span class="keyword-tag">MSE</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- D-4 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-4</span>
-      <span class="q-meta">CO+CT | 5차시 | 경사하강법과 학습률</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">현지:</span> "학습률 1.5로 했더니 공이 왔다 갔다 하면서 안 내려갔어."</p>
-        <p><span class="speaker">은하:</span> "나는 0.001로 했더니 너무 느려서 시간 안에 못 내려갔어."</p>
-        <p><span class="speaker">현지:</span> "왜 그런 건지 설명해볼까?"</p>
-      </div>
-      <img src="assessment-images/gradient_descent_mountain.jpg" alt="경사하강법 산 비유">
-      <img src="assessment-images/gradient_descent_comparison.png" alt="학습률 비교 그래프">
-      <p class="question-text">경사하강법의 원리와 학습률에 따른 문제를 서술하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">기울기 반대 방향</span>
-        <span class="keyword-tag">가중치 업데이트</span>
-        <span class="keyword-tag">과대 -> 발산</span>
-        <span class="keyword-tag">과소 -> 느린 수렴</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- D-5 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-5</span>
-      <span class="q-meta">AL | 6차시 | 순전파와 역전파</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">하임:</span> "역전파가 제일 어려웠어. 순전파랑 뭐가 다른 건지..."</p>
-        <p><span class="speaker">하은:</span> "순전파는 앞으로, 역전파는 뒤로 가는 거잖아. 4단계로 정리해볼까?"</p>
-      </div>
-      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
-      <p class="question-text">순전파와 역전파의 관계를 4단계로 설명하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">순전파(입력->출력)</span>
-        <span class="keyword-tag">오차 계산</span>
-        <span class="keyword-tag">기울기 역전파(출력->입력)</span>
-        <span class="keyword-tag">가중치 업데이트</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- D-6 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">D-6</span>
-      <span class="q-meta">CO | 8차시 | 다음 토큰 예측과 Temperature</span>
-      <span class="q-points">4점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">온유:</span> "Temperature를 0.1로 하니까 맨날 같은 답만 나와. 2.0으로 하니까 이상한 말도 해."</p>
-        <p><span class="speaker">윤지:</span> "왜 그런 건지 설명할 수 있어? '다음 토큰 예측' 원리부터 시작해서."</p>
-      </div>
-      <img src="assessment-images/next_token_prediction.jpg" alt="다음 토큰 예측">
-      <img src="assessment-images/temperature_comparison.jpg" alt="Temperature 비교">
-      <p class="question-text">다음 토큰 예측 원리와 Temperature의 영향을 서술하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">확률 분포</span>
+        <span class="keyword-tag">퍼셉트론</span>
+        <span class="keyword-tag">활성화함수</span>
+        <span class="keyword-tag">손실함수</span>
+        <span class="keyword-tag">경사하강법</span>
+        <span class="keyword-tag">역전파</span>
+        <span class="keyword-tag">임베딩</span>
         <span class="keyword-tag">다음 토큰 예측</span>
-        <span class="keyword-tag">낮으면 -> 반복적</span>
-        <span class="keyword-tag">높으면 -> 다양</span>
+        <span class="keyword-tag">환각</span>
       </div>
+      <div class="answer-area xtall" data-label="답안 작성란"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     TRACK C: 과정 관찰 평가 (30점)
+     ============================================================ -->
+<section id="track-c" style="margin-top:2rem;">
+  <div class="part-header" style="background:linear-gradient(135deg, #FB923C 0%, #EA580C 100%);">
+    <div class="part-icon">C</div>
+    <div>
+      <h2>Track C: 과정 관찰 평가</h2>
+      <div class="part-desc">3영역 | 30점 | 수업 중 누적 관찰</div>
+    </div>
+  </div>
+
+  <div style="background:white; border-radius:10px; padding:1.5rem; margin-top:1rem; box-shadow:0 2px 12px rgba(26,39,68,0.08);">
+    <p style="color:#6B7280; margin-bottom:1.2rem;">Track C는 시험이 아닌, <strong>1~8차시 수업 과정에서 선생님이 관찰</strong>하여 평가합니다. 아래 기준을 미리 알고 수업에 임해주세요.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:1rem;">
+
+      <!-- C-1 실습 참여 -->
+      <div style="background:#FFF7ED; border:1px solid #FDBA74; border-radius:8px; padding:1.2rem;">
+        <div style="font-weight:700; color:#EA580C; font-size:1.05rem; margin-bottom:0.5rem;">C-1. 실습 참여 (10점)</div>
+        <ul style="margin:0; padding-left:1.2rem; color:#374151; line-height:1.8;">
+          <li>코드/시뮬레이션을 <strong>직접 실행</strong>하는가</li>
+          <li>결과를 활동지에 <strong>기록</strong>하는가</li>
+          <li>오류 발생 시 <strong>스스로 해결</strong>을 시도하는가</li>
+        </ul>
+      </div>
+
+      <!-- C-2 탐구 태도 -->
+      <div style="background:#FFF7ED; border:1px solid #FDBA74; border-radius:8px; padding:1.2rem;">
+        <div style="font-weight:700; color:#EA580C; font-size:1.05rem; margin-bottom:0.5rem;">C-2. 탐구 태도 (10점)</div>
+        <ul style="margin:0; padding-left:1.2rem; color:#374151; line-height:1.8;">
+          <li><strong>"왜?"</strong>라는 질문을 스스로 제기하는가</li>
+          <li>파라미터를 바꿔가며 <strong>실험</strong>하는가</li>
+          <li>결과에 대해 <strong>"왜 이런 결과일까?"</strong>를 고민하는가</li>
+        </ul>
+      </div>
+
+      <!-- C-3 협력과 공유 -->
+      <div style="background:#FFF7ED; border:1px solid #FDBA74; border-radius:8px; padding:1.2rem;">
+        <div style="font-weight:700; color:#EA580C; font-size:1.05rem; margin-bottom:0.5rem;">C-3. 협력과 공유 (10점)</div>
+        <ul style="margin:0; padding-left:1.2rem; color:#374151; line-height:1.8;">
+          <li>모둠 토론에서 <strong>자기 의견</strong>을 말하는가</li>
+          <li>다른 학생이 어려워할 때 <strong>도움</strong>을 주는가</li>
+          <li>배운 내용을 <strong>자기 언어로</strong> 정리하는가</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     PART E: 서술형 (통합)
-     ============================================================ -->
-<section id="part-e" class="part-section part-e">
-  <div class="part-header">
-    <div class="part-icon">E</div>
-    <div class="part-title-group">
-      <h2>Part E: 서술형 - 통합</h2>
-      <div class="part-desc">2문항 x 5점 = 10점 | 차시 간 연결</div>
-    </div>
-  </div>
-
-  <div class="info-box green">
-    <strong>통합 서술형 안내:</strong> 여러 차시에서 배운 개념을 <strong>연결</strong>하여 서술하는 문항입니다. 핵심 키워드를 활용하여 인과적 흐름을 설명하세요.
-  </div>
-
-  <!-- E-1 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">E-1</span>
-      <span class="q-meta">AL | 4+5+6차시 | 신경망 학습 전체 과정</span>
-      <span class="q-points">5점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">윤지:</span> "4차시, 5차시, 6차시에서 배운 게 결국 하나로 이어지잖아."</p>
-        <p><span class="speaker">하은:</span> "맞아. 손실함수로 재고 -> 경사하강법으로 줄이고 -> 역전파로 전달하는 거지?"</p>
-        <p><span class="speaker">윤지:</span> "그 전체 흐름을 처음부터 끝까지 써보자."</p>
+  <!-- ==============================
+       추가 탐구 추천 주제 (접힘)
+       ============================== -->
+  <section style="margin-top: 3rem;">
+    <details style="background:white; border-radius:var(--radius); box-shadow:var(--shadow-sm); border:1px solid var(--gray-200); overflow:hidden;">
+      <summary style="display:flex; align-items:center; gap:0.75rem; padding:1.2rem; cursor:pointer; user-select:none;">
+        <div style="width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.95rem; color:#fff; background:linear-gradient(135deg, #10B981, #059669); flex-shrink:0;">+</div>
+        <div>
+          <span style="font-size:1.1rem; font-weight:700; color:var(--gray-900);">추가 탐구 추천 주제</span>
+          <span style="font-size:0.8rem; color:var(--gray-500); margin-left:0.5rem;">정규 수업 너머, 더 깊이 공부하고 싶은 학생을 위한 안내</span>
+        </div>
+      </summary>
+    <div style="display:grid; gap:1rem; padding:0 1.2rem 1.2rem;">
+      <div style="background:#F0FDF4; border-radius:12px; padding:1.2rem; border-left:4px solid #10B981;">
+        <h4 style="color:#059669; margin-bottom:0.5rem;">트랜스포머(Transformer) 구조</h4>
+        <p style="font-size:0.9rem; color:var(--gray-700); line-height:1.7;">어텐션 메커니즘이 실제로 어떻게 구현되는지, Self-Attention과 Multi-Head Attention의 차이는 무엇인지 탐구해보세요. "Attention Is All You Need" 논문이 출발점입니다.</p>
       </div>
-      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
-      <p class="question-text">전체 학습 과정을 연결하여 설명하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">순전파->예측</span>
-        <span class="keyword-tag">손실함수->오차 수치화</span>
-        <span class="keyword-tag">경사하강법->기울기 반대 이동</span>
-        <span class="keyword-tag">역전파->기울기 분배</span>
-        <span class="keyword-tag">반복</span>
+      <div style="background:#F0FDF4; border-radius:12px; padding:1.2rem; border-left:4px solid #10B981;">
+        <h4 style="color:#059669; margin-bottom:0.5rem;">강화학습과 RLHF</h4>
+        <p style="font-size:0.9rem; color:var(--gray-700); line-height:1.7;">ChatGPT는 사람의 피드백으로 학습합니다(RLHF). 보상 함수, 정책 경사법 등 강화학습의 기초 개념을 살펴보세요.</p>
+      </div>
+      <div style="background:#F0FDF4; border-radius:12px; padding:1.2rem; border-left:4px solid #10B981;">
+        <h4 style="color:#059669; margin-bottom:0.5rem;">CNN과 이미지 인식</h4>
+        <p style="font-size:0.9rem; color:var(--gray-700); line-height:1.7;">합성곱 신경망(CNN)은 이미지를 이해하는 AI의 핵심입니다. 필터, 풀링, 특성 맵이 어떻게 작동하는지, AlexNet에서 ResNet까지의 발전 과정을 추적해보세요.</p>
+      </div>
+      <div style="background:#F0FDF4; border-radius:12px; padding:1.2rem; border-left:4px solid #10B981;">
+        <h4 style="color:#059669; margin-bottom:0.5rem;">AI 윤리와 편향</h4>
+        <p style="font-size:0.9rem; color:var(--gray-700); line-height:1.7;">학습 데이터에 편향이 있으면 AI도 편향된 판단을 합니다. 공정성(Fairness), 설명가능성(Explainability), 책임(Accountability) 관점에서 AI 윤리를 탐구해보세요.</p>
+      </div>
+      <div style="background:#F0FDF4; border-radius:12px; padding:1.2rem; border-left:4px solid #10B981;">
+        <h4 style="color:#059669; margin-bottom:0.5rem;">Python으로 직접 만들어보기</h4>
+        <p style="font-size:0.9rem; color:var(--gray-700); line-height:1.7;">NumPy로 퍼셉트론 구현, PyTorch로 MNIST 손글씨 분류기 만들기 등 직접 코딩하며 이론을 체험해보세요. Google Colab에서 무료로 시작할 수 있습니다.</p>
       </div>
     </div>
-  </div>
-
-  <!-- E-2 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">E-2</span>
-      <span class="q-meta">CT+CO | 7+8차시 | 환각의 구조적 원인</span>
-      <span class="q-points">5점</span>
-    </div>
-    <div class="q-body">
-      <div class="dialogue">
-        <p><span class="speaker">은하:</span> "ChatGPT한테 연구 논문 추천해달라고 했더니, 진짜 없는 논문을 지어냈어!"</p>
-        <p><span class="speaker">하임:</span> "그게 환각이잖아. 근데 이거 AI가 바보라서 그런 게 아니라고 했잖아."</p>
-        <p><span class="speaker">은하:</span> "맞아... 토큰화부터 시작해서 왜 이럴 수밖에 없는지 설명해볼래?"</p>
-      </div>
-      <img src="assessment-images/ai_hallucination.jpg" alt="AI 환각">
-      <p class="question-text">환각의 구조적 원인을 토큰화와 확률적 예측의 관점에서 서술하시오.</p>
-      <div class="keyword-box">
-        <div class="kw-label">핵심 키워드 (공개)</div>
-        <span class="keyword-tag">토큰 = 통계적 단위</span>
-        <span class="keyword-tag">확률 기반 예측</span>
-        <span class="keyword-tag">"그럴듯한" =/= "사실인"</span>
-        <span class="keyword-tag">사실 검증 불가</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </details>
+  </section>
 
 <!-- ============================================================
-     PART F: 자기 성찰
+     채점 매트릭스
      ============================================================ -->
-<section id="part-f" class="part-section part-f">
-  <div class="part-header">
-    <div class="part-icon">F</div>
-    <div class="part-title-group">
-      <h2>Part F: 자기 성찰</h2>
-      <div class="part-desc">Google Forms | 2문항</div>
+<section id="score-matrix" style="margin-top:2rem; page-break-before:always;">
+  <div style="background:white; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(26,39,68,0.08);">
+    <h2 style="font-size:1.2rem; font-weight:700; color:#1a2744; margin-bottom:0.3rem;">채점표</h2>
+    <div style="display:flex; gap:2rem; margin-bottom:1rem; font-size:0.95rem; color:#374151;">
+      <span>이름: _______________</span>
+      <span>학번: _______________</span>
+      <span>반: _______</span>
+      <span>평가일: ____년 ____월 ____일</span>
     </div>
-  </div>
 
-  <div class="info-box" style="background:#EEF2FF; border-left-color:var(--part-f); color:#3730A3;">
-    <strong>안내:</strong> 자기 성찰은 Google Forms로 작성합니다. 아래는 질문 내용 미리보기입니다.
-  </div>
+    <!-- 차시(Y) × 영역(X) 매트릭스 채점표 -->
+    <p style="font-size:0.8rem; color:#6B7280; margin-bottom:0.5rem;">각 칸에 득점을 기입하면 차시별·영역별 성취도를 한눈에 파악할 수 있습니다.</p>
+    <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:center; table-layout:fixed;">
+      <thead>
+        <tr>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#1a2744; color:white; width:6%;">차시</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#1D4ED8; color:white; width:11%;">수학적<br>계산</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#059669; color:white; width:12%;">개념<br>이해</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#B45309; color:white; width:11%;">알고리즘<br>사고</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#6D28D9; color:white; width:11%;">데이터<br>해석</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#B91C1C; color:white; width:11%;">비판적<br>사고</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#BE185D; color:white; width:12%;">서술<br>논증</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#C2410C; color:white; width:13%;">탐구<br>태도</th>
+          <th style="padding:6px 2px; border:1px solid #d5dde8; background:#1a2744; color:white; width:11%;">차시<br>소계</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 2차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">2</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-1</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-11</strong><br><span style="color:#aaa;">___</span>/3</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>B-1</strong><br><span style="color:#aaa;">___</span>/5</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/12</td>
+        </tr>
+        <!-- 3차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">3</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-5</strong><br><span style="color:#aaa;">___</span>/3</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-12</strong><br><span style="color:#aaa;">___</span>/3</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>B-2</strong>*<br><span style="color:#aaa;">___</span>/5</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/11</td>
+        </tr>
+        <!-- 4차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">4</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-2</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>B-4</strong>*<br><span style="color:#aaa;">___</span>/5</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/9</td>
+        </tr>
+        <!-- 5차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">5</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-3</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-10</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/8</td>
+        </tr>
+        <!-- 6차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">6</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-4</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-9</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/8</td>
+        </tr>
+        <!-- 7차시 -->
+        <tr style="height:40px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">7</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-6</strong><br><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>B-3</strong>*<br><span style="color:#aaa;">___</span>/5</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/9</td>
+        </tr>
+        <!-- 8차시 -->
+        <tr style="height:48px;">
+          <td style="border:1px solid #d5dde8; padding:3px; font-weight:700; background:#F9FAFB;">8</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:2px; background:white; font-size:0.72rem;"><strong>A-7</strong> <span style="color:#aaa;">__</span>/2<br><strong>A-8</strong> <span style="color:#aaa;">__</span>/3</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>A-13</strong><br><span style="color:#aaa;">___</span>/3</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:white;"><strong>B-5</strong>*<br><span style="color:#aaa;">___</span>/5</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/13</td>
+        </tr>
+        <!-- 수업과정 -->
+        <tr style="height:56px;">
+          <td style="border:1px solid #d5dde8; padding:2px; font-weight:700; background:#F9FAFB; font-size:0.7rem;">수업<br>과정</td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; background:#f3f4f6;"></td>
+          <td style="border:1px solid #d5dde8; padding:2px; background:white; font-size:0.68rem; line-height:1.5;"><strong>C-1</strong> <span style="color:#aaa;">__</span>/10<br><strong>C-2</strong> <span style="color:#aaa;">__</span>/10<br><strong>C-3</strong> <span style="color:#aaa;">__</span>/10</td>
+          <td style="border:1px solid #d5dde8; padding:3px; background:#FEFCE8; font-weight:700;"><span style="color:#aaa;">___</span>/30</td>
+        </tr>
+        <!-- 영역 소계 -->
+        <tr style="font-weight:700;">
+          <td style="border:1px solid #d5dde8; padding:6px; background:#1a2744; color:white; font-size:0.72rem;">영역<br>소계</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/16</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/12</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/4</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/7</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/6</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/25</td>
+          <td style="border:1px solid #d5dde8; padding:5px; background:#FEFCE8;"><span style="color:#aaa;">___</span>/30</td>
+          <td style="border:1px solid #d5dde8; padding:6px; background:#1a2744; color:white; font-size:0.85rem; letter-spacing:-0.5px;"><span style="color:#94a3b8;">__</span>/100</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.7rem; color:#9CA3AF; margin-top:4px;">* B-2(3+5차시), B-3(7+8차시), B-4(4~6차시), B-5(종합): 복수 차시 통합 문항, 대표 차시에 배치</p>
 
-  <!-- F-1 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">F-1</span>
-      <span class="q-meta">CT | Before - 1차시 수업 시작 시</span>
-      <span class="q-points">성찰</span>
-    </div>
-    <div class="q-body">
-      <p style="font-size:1.1rem; font-weight:700; color:var(--gray-900); margin-bottom:1rem;">"기계가 생각할 수 있는가?"</p>
-      <ol style="padding-left:1.2rem; font-size:0.95rem;">
-        <li style="margin-bottom:0.5rem;">이 질문에 대한 나의 현재 답: (자유 서술)</li>
-        <li style="margin-bottom:0.5rem;">그렇게 생각하는 근거: (자유 서술)</li>
-        <li style="margin-bottom:0.5rem;">AI에 대해 내가 이미 알고 있는 것: (자유 서술)</li>
-        <li>이 수업에서 가장 알고 싶은 것: (자유 서술)</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- F-2 -->
-  <div class="q-card">
-    <div class="q-card-header">
-      <span class="q-number">F-2</span>
-      <span class="q-meta">CT | After - 10차시 수업 종료 시</span>
-      <span class="q-points">성찰</span>
-    </div>
-    <div class="q-body">
-      <ol style="padding-left:1.2rem; font-size:0.95rem;">
-        <li style="margin-bottom:0.5rem;">같은 질문 "기계가 생각할 수 있는가?"에 대한 <strong>지금의</strong> 답: (자유 서술)</li>
-        <li style="margin-bottom:0.5rem;">1차시 때의 나의 답을 다시 읽어보세요. <strong>무엇이 변했나요?</strong> (자유 서술)</li>
-        <li style="margin-bottom:0.5rem;"><strong>어떤 수업 경험</strong>이 나의 생각을 바꾸었나요? 가장 결정적이었던 순간을 구체적으로: (자유 서술)</li>
-        <li style="margin-bottom:0.5rem;">수업에서 배운 개념 중 <strong>3개 이상</strong>을 사용하여 답의 근거를 쓰시오: (자유 서술)</li>
-        <li>AI와 인간이 함께하는 미래에 대한 나의 생각: (자유 서술)</li>
-      </ol>
+    <div style="margin-top:1.2rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; font-size:0.9rem; color:#6B7280;">
+      <div style="border:1px solid #d5dde8; border-radius:6px; padding:0.8rem;">
+        <strong style="color:#374151;">평가자 의견</strong>
+        <div style="min-height:60px; margin-top:0.3rem;"></div>
+      </div>
+      <div style="border:1px solid #d5dde8; border-radius:6px; padding:0.8rem;">
+        <strong style="color:#374151;">구술 평가 메모</strong>
+        <div style="min-height:60px; margin-top:0.3rem;"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1344,7 +1639,7 @@ code {
      FOOTER
      ============================== -->
 <footer class="footer">
-  <p>&copy; 2026 AI 기초 수업</p>
+  <p>AI 기초 과정중심평가 | v5 | 2026</p>
 </footer>
 
 <!-- ==============================
