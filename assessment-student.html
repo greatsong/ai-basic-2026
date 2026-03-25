@@ -1056,7 +1056,8 @@ code {
       <p class="question-text">이 기계는 무엇을 출력할까요?</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>가중합 = -0.5 &rarr; 출력 = <strong>0</strong></p>
+        <p>가중합 = 1&times;1 + 0&times;1 + (-1.5) = -0.5</p>
+        <p>-0.5는 0 이하이므로 출력 = <strong>0</strong></p>
       </div>
     </div>
   </div>
@@ -1090,7 +1091,8 @@ code {
       <p class="question-text">y = 2x + 1, z = 3y + 4일 때 z를 x로 나타내고, 의미를 한 문장으로 쓰시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>z = <strong>6x + 7</strong> &mdash; 선형 합성은 선형이다.</p>
+        <p>z = 3(2x + 1) + 4 = 6x + 3 + 4 = <strong>6x + 7</strong> (여전히 1차식)</p>
+        <p>의미: 활성화함수 없이 선형 층을 쌓으면, 아무리 많이 쌓아도 하나의 선형 함수와 동일하다.</p>
       </div>
     </div>
   </div>
@@ -1126,7 +1128,10 @@ code {
       <p class="question-text">예측 [4&#8451;, 2&#8451;, 6&#8451;], 실제 [3&#8451;, 2&#8451;, 9&#8451;]일 때 MSE를 구하시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>MSE = (1+0+9)/3 &asymp; <strong>3.33</strong></p>
+        <p>오차: (4-3)=1, (2-2)=0, (6-9)=-3</p>
+        <p>오차 제곱: 1, 0, 9</p>
+        <p>합: 1+0+9 = 10</p>
+        <p>MSE = 10/3 &asymp; <strong>3.33</strong></p>
       </div>
     </div>
   </div>
@@ -1160,7 +1165,9 @@ code {
       <p class="question-text">데이터 A, B 각각의 MSE를 구하고 이상치의 영향을 설명하시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>A &asymp; <strong>0.67</strong>, B &asymp; <strong>56.67</strong> &mdash; 약 85배 차이</p>
+        <p>A: 오차 (1, 0, -1) &rarr; 제곱 (1, 0, 1) &rarr; MSE = 2/3 &asymp; <strong>0.67</strong></p>
+        <p>B: 오차 (1, 0, -13) &rarr; 제곱 (1, 0, 169) &rarr; MSE = 170/3 &asymp; <strong>56.67</strong></p>
+        <p>이상치 하나로 MSE가 약 85배 커졌다. MSE는 오차를 제곱하므로 큰 오차에 매우 민감하다.</p>
       </div>
     </div>
   </div>
@@ -1192,7 +1199,7 @@ code {
       <p class="question-text">업데이트된 가중치를 구하시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>w<sub>new</sub> = 3.0 - 0.2 = <strong>2.8</strong></p>
+        <p>w<sub>new</sub> = w - lr &times; 기울기 = 3.0 - 0.05 &times; 4 = 3.0 - 0.2 = <strong>2.8</strong></p>
       </div>
     </div>
   </div>
@@ -1228,7 +1235,10 @@ code {
       <p class="question-text">w=5.0, 기울기=-3일 때, lr 0.1/0.5/2.0 각각의 결과와 적절한 학습률을 쓰시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>5.3 / 6.5 / 11.0 &mdash; 0.1 또는 0.5 적절</p>
+        <p>lr=0.1: 5.0 - 0.1&times;(-3) = 5.0 + 0.3 = <strong>5.3</strong> (안정적 이동)</p>
+        <p>lr=0.5: 5.0 - 0.5&times;(-3) = 5.0 + 1.5 = <strong>6.5</strong> (큰 이동)</p>
+        <p>lr=2.0: 5.0 - 2.0&times;(-3) = 5.0 + 6.0 = <strong>11.0</strong> (과도한 이동, 발산 위험)</p>
+        <p>적절한 학습률: 0.1 또는 0.5. 2.0은 최솟값을 뛰어넘어 발산할 수 있다.</p>
       </div>
     </div>
   </div>
@@ -1262,7 +1272,8 @@ code {
       <p class="question-text">가중합과 ReLU 출력을 구하시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p>z = <strong>0.5</strong>, ReLU = <strong>0.5</strong></p>
+        <p>가중합: z = (2&times;0.5) + (1&times;(-1)) + 0.5 = 1 - 1 + 0.5 = <strong>0.5</strong></p>
+        <p>ReLU(0.5) = <strong>0.5</strong> (양수이므로 그대로)</p>
       </div>
     </div>
   </div>
@@ -1299,6 +1310,8 @@ code {
       <p class="question-text">위 신경망에서 학습할 파라미터는 총 몇 개인가?</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
+        <p>입력&rarr;은닉: 가중치 3&times;4=12개, 편향 4개 &rarr; 소계 16개</p>
+        <p>은닉&rarr;출력: 가중치 4&times;2=8개, 편향 2개 &rarr; 소계 10개</p>
         <p>총 <strong>26개</strong></p>
       </div>
     </div>
@@ -1310,6 +1323,8 @@ code {
       <p class="question-text">위 신경망에서 학습해야 할 파라미터는 정확히 몇 개인가?</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
+        <p>입력&rarr;은닉: 가중치 3&times;4=12개, 편향 4개 &rarr; 소계 16개</p>
+        <p>은닉&rarr;출력: 가중치 4&times;2=8개, 편향 2개 &rarr; 소계 10개</p>
         <p>총 <strong>26개</strong></p>
       </div>
     </div>
@@ -1344,7 +1359,8 @@ code {
       <p class="question-text">서울=[3,1], 한국=[2,0], 일본=[2,1]일 때 계산 결과와 의미를 쓰시오.</p>
       <div class="solution-box">
         <div class="sol-label">공개 풀이</div>
-        <p><strong>[3, 2]</strong> &mdash; 일본의 수도(도쿄)에 해당</p>
+        <p>[3-2+2, 1-0+1] = <strong>[3, 2]</strong></p>
+        <p>의미: "서울이 한국의 수도이듯, 결과 벡터는 일본의 수도(도쿄)에 해당하는 위치를 가리킨다."</p>
       </div>
     </div>
   </div>
@@ -1412,7 +1428,7 @@ code {
       <div class="version-tab" onclick="switchTab(this, 'c2')">B 대화형</div>
     </div>
     <div class="version-content active" id="c2-0">
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_flow.png" alt="역전파 순서 배열">
       <p class="question-text">다음을 역전파 과정의 올바른 순서로 배열하시오.</p>
       <p><code>[ 가중치 업데이트 / 순전파 수행 / 기울기 역방향 전파 / 오차 계산 ]</code></p>
       <div class="answer-area">
@@ -1425,7 +1441,7 @@ code {
         <p><span class="speaker">하임:</span> "이 4장을 순서대로 놓아봐."</p>
         <p><span class="speaker">현지:</span> "순전파가 먼저인 건 알겠는데, 그 다음이..."</p>
       </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_flow.png" alt="역전파 순서 배열">
       <p class="question-text">4단계를 올바른 순서로 배열하시오.</p>
     </div>
   </div>
@@ -1760,7 +1776,7 @@ code {
       <div class="version-tab" onclick="switchTab(this, 'd5')">C 소설형</div>
     </div>
     <div class="version-content active" id="d5-0">
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">순전파와 역전파의 관계를 4단계로 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
@@ -1776,7 +1792,7 @@ code {
         <p><span class="speaker">하임:</span> "역전파가 제일 어려웠어. 순전파랑 뭐가 다른 건지..."</p>
         <p><span class="speaker">하은:</span> "순전파는 앞으로, 역전파는 뒤로 가는 거잖아. 4단계로 정리해볼까?"</p>
       </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">순전파와 역전파의 관계를 4단계로 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
@@ -1790,7 +1806,7 @@ code {
       <div class="story-box">
         1986년, 럼멜하트, 힌튼, 윌리엄스가 발표합니다 -- 역전파 알고리즘. 오차를 출력층에서 입력층 방향으로 거꾸로 보내며 각 가중치의 책임을 계산하는 방법.
       </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">순전파와 역전파가 어떻게 함께 작동하여 신경망을 학습시키는지, 4단계로 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
@@ -1872,7 +1888,7 @@ code {
       <div class="version-tab" onclick="switchTab(this, 'e1')">C 소설형</div>
     </div>
     <div class="version-content active" id="e1-0">
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">신경망이 하나의 데이터에서 학습하는 전체 과정을 "손실함수 -> 경사하강법 -> 역전파"의 흐름으로 연결하여 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
@@ -1890,7 +1906,7 @@ code {
         <p><span class="speaker">하은:</span> "맞아. 손실함수로 재고 -> 경사하강법으로 줄이고 -> 역전파로 전달하는 거지?"</p>
         <p><span class="speaker">윤지:</span> "그 전체 흐름을 처음부터 끝까지 써보자."</p>
       </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">전체 학습 과정을 연결하여 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
@@ -1905,7 +1921,7 @@ code {
       <div class="story-box">
         가우스(1801)가 발명한 "틀린 정도 재기", 코시(1847)가 제안한 "기울기 반대로 이동", 힌튼(1986)이 되살린 "오차의 역전파" -- 이 세 아이디어가 합쳐져 현대 AI의 학습이 완성되었습니다.
       </div>
-      <img src="assessment-images/backpropagation_flow.png" alt="역전파 흐름도">
+      <img src="assessment-images/backpropagation_blank.png" alt="역전파 흐름도">
       <p class="question-text">이 전체 과정을 하나의 흐름으로 연결하여 설명하시오.</p>
       <div class="keyword-box">
         <div class="kw-label">핵심 키워드 (공개)</div>
