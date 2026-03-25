@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 기초 과정중심평가</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+    }
+    .container {
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .subtitle {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 260px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    }
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+    .card.student { border-top: 4px solid #3B82F6; }
+    .card.student .card-title { color: #3B82F6; }
+    .card.teacher { border-top: 4px solid #EF4444; }
+    .card.teacher .card-title { color: #EF4444; }
+    .footer {
+      margin-top: 2.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .card.student .badge { background: #EFF6FF; color: #3B82F6; }
+    .card.teacher .badge { background: #FEF2F2; color: #EF4444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI 기초</h1>
+    <p class="subtitle">고등학교 2학년 · 과정중심평가 문항집</p>
+    <div class="cards">
+      <a href="assessment-student.html" class="card student">
+        <div class="card-icon">📝</div>
+        <div class="card-title">학생용</div>
+        <div class="card-desc">문제만 포함<br>정답·루브릭 없음</div>
+        <span class="badge">A / B / C 버전 전환</span>
+      </a>
+      <a href="assessment-teacher.html" class="card teacher">
+        <div class="card-icon">📋</div>
+        <div class="card-title">교사용</div>
+        <div class="card-desc">정답 + 루브릭 + 생기부<br>대체 세트 α/β/γ 포함</div>
+        <span class="badge">교사 전용</span>
+      </a>
+    </div>
+    <p class="footer">&copy; 2026 AI 기초 수업 · 10차시 과정중심평가</p>
+  </div>
+</body>
+</html>
